@@ -54,6 +54,7 @@
   --contrast-color: #ffffff;
 }
 
+
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
@@ -4238,4 +4239,14 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+.image-fullheight {
+    background-image: url("images/tonimage.jpg"); /* mets ton image ici */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;       
+    min-height: 100vh; /* image = hauteur totale de l'écran */
+    margin-top: 20px;  /* tu peux ajuster */
 }
