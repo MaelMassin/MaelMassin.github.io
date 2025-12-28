@@ -4245,7 +4245,7 @@ section,
 main.main {
     /* Le dégradé sombre permet de lire le texte par-dessus l'image */
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
-                      url('../img/image_fcf787.jpg'); 
+                      url('assets/img/profile/profile-bg-5.webp'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* L'image reste fixe quand on scrolle */
