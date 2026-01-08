@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Détails du Projet - Maël Massin</title>
-  <link href="assets/img/favicon.png" rel="icon">
+  <title>Projet - Maël Massin</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
+
 <body class="portfolio-details-page">
+
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
       <a href="index.html" class="logo d-flex align-items-center me-auto">
@@ -21,7 +26,7 @@
       </a>
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#hero">Accueil</a></li>
           <li><a href="index.html#about">À propos</a></li>
           <li><a href="index.html#resume">Résumé</a></li>
           <li><a href="index.html#portfolio" class="active">Portfolio</a></li>
@@ -31,64 +36,96 @@
       </nav>
     </div>
   </header>
+
   <main class="main">
+
     <div class="page-title">
       <div class="container">
         <h1>Détails du Projet</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Détails du Projet</li>
+            <li><a href="index.html">Accueil</a></li>
+            <li class="current">Détails</li>
           </ol>
         </nav>
       </div>
     </div>
+
     <section id="portfolio-details" class="portfolio-details section">
       <div class="container">
-        <div class="row gy-5">
+
+        <div class="row gy-4">
+
           <div class="col-lg-8">
-            <div class="portfolio-content profile-card">
-              <h2>Description du Projet</h2>
-              <p>Projet réalisé dans le cadre de ma formation en BUT Réseaux et Télécommunications.</p>
-              <div class="highlights-box mt-4">
-                <h4>Compétences mises en œuvre</h4>
-                <ul>
-                  <li><i class="bi bi-check-circle"></i> Configuration réseau</li>
-                  <li><i class="bi bi-check-circle"></i> Administration système</li>
-                </ul>
+            <div class="portfolio-details-slider swiper init-swiper" style="background: #1f1f1f; border-radius: 10px; overflow: hidden;">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide text-center">
+                  <img src="assets/img/portfolio/portfolio-1.jpg" alt="Aperçu" class="img-fluid">
+                </div>
               </div>
             </div>
+
+            <div class="portfolio-content profile-card mt-4" style="padding: 30px; background: #1a1a1a; border-radius: 10px; border: 1px solid #333;">
+              <h2 style="color: var(--accent-color);">Description du Projet</h2>
+              <p>
+                Ce projet a été réalisé dans le cadre de ma formation en <strong>BUT Réseaux & Télécommunications</strong>. 
+                L'objectif était de mettre en place une infrastructure sécurisée et de configurer les services réseaux essentiels.
+              </p>
+              <hr style="border-color: #444;">
+              <h3>Objectifs techniques</h3>
+              <ul>
+                <li><i class="bi bi-check-circle-fill text-danger"></i> Configuration de switchs et routeurs (Cisco)</li>
+                <li><i class="bi bi-check-circle-fill text-danger"></i> Mise en place de protocoles de routage</li>
+                <li><i class="bi bi-check-circle-fill text-danger"></i> Analyse de trafic avec Wireshark</li>
+              </ul>
+            </div>
           </div>
+
           <div class="col-lg-4">
-            <div class="sidebar profile-card">
-              <h3>Informations</h3>
-              <div class="info-item d-flex justify-content-between border-bottom py-2">
-                <span class="label">Catégorie:</span>
-                <span class="value">Réseaux</span>
+            <div class="sidebar profile-card" style="padding: 30px; background: #1a1a1a; border-radius: 10px; border: 1px solid #333;">
+              <h3 style="border-bottom: 2px solid var(--accent-color); padding-bottom: 10px;">Informations</h3>
+              
+              <div class="info-item d-flex justify-content-between py-3 border-bottom border-secondary">
+                <strong>Catégorie:</strong>
+                <span>Réseaux & Télécoms</span>
               </div>
+              <div class="info-item d-flex justify-content-between py-3 border-bottom border-secondary">
+                <strong>Date:</strong>
+                <span>Janvier 2026</span>
+              </div>
+              <div class="info-item d-flex justify-content-between py-3 border-bottom border-secondary">
+                <strong>Outils:</strong>
+                <span>Cisco, Linux, Python</span>
+              </div>
+
               <div class="mt-4">
-                <a href="#" class="btn-primary w-100 text-center d-block py-2 mb-2">
-                  <i class="bi bi-download"></i> Télécharger
+                <a href="#" class="btn btn-danger w-100 mb-3 py-2 fw-bold">
+                  <i class="bi bi-download"></i> Télécharger le rapport
                 </a>
-                <a href="https://github.com/maelmassin" class="btn-secondary w-100 text-center d-block py-2" target="_blank">
-                  <i class="bi bi-github"></i> GitHub
+                <a href="https://github.com/maelmassin" target="_blank" class="btn btn-outline-light w-100 py-2">
+                  <i class="bi bi-github"></i> Voir sur GitHub
                 </a>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
+
   </main>
+
   <footer id="footer" class="footer">
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Maël Massin</strong></p>
+    <div class="container text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1">Maël Massin</strong></p>
     </div>
   </footer>
+
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
+
 </body>
 </html>
