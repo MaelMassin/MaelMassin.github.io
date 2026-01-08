@@ -105,7 +105,7 @@ main.main {
 /* --- Media Queries (Responsive) --- */
 @media (max-width: 768px) {
   .section-title h2 { font-size: 2.5rem; }
-  main.main { background-attachment: scroll; } /* Meilleure performance sur mobile */
+  main.main { background-attachment: scroll; }
 }
 
 .profile-card {
