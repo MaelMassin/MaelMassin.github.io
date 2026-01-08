@@ -60,19 +60,19 @@
       <div class="container">
         <div class="row gy-5">
           <div class="col-lg-4" data-aos="fade-up">
-            <div class="profile-card text-center">
-              <img src="assets/img/profile/profile-bg-5.webp" class="img-fluid rounded-circle mb-3" alt="Maël" style="width:150px; height:150px; object-fit: cover;">
+            <div class="profile-card text-center shadow">
+              <img src="assets/img/profile/profile-bg-5.webp" class="img-fluid rounded-circle mb-3" alt="Maël" style="width:150px; height:150px; object-fit: cover; border: 4px solid var(--accent-color);">
               <h3>Maël Massin</h3>
               <p class="role">Étudiant R&T</p>
               <div class="profile-actions mt-3">
                 <a href="#" class="btn btn-danger w-100 mb-2">Télécharger CV</a>
-                <a href="mailto:votre-email@exemple.com" class="btn btn-outline-light w-100">Me contacter</a>
+                <a href="mailto:mael.haubourdin@yahoo.com" class="btn btn-outline-light w-100">Me contacter</a>
               </div>
             </div>
           </div>
 
           <div class="col-lg-8" data-aos="fade-up">
-            <div class="content-wrapper">
+            <div class="content-wrapper card p-4 shadow">
               <h2>Transformer les idées en réalité numérique</h2>
               <div class="row mt-4">
                 <div class="col-md-6 mb-3">
@@ -83,10 +83,10 @@
                 </div>
               </div>
               <h3 class="mt-4">Compétences techniques</h3>
-              <p>Programmation (Python, JavaScript)</p>
-              <div class="progress mb-3"><div class="progress-bar bg-danger" style="width: 75%">75%</div></div>
-              <p>Réseaux (Cisco, Administration)</p>
-              <div class="progress mb-3"><div class="progress-bar bg-danger" style="width: 60%">60%</div></div>
+              <p class="mb-1">Programmation (Python, JavaScript)</p>
+              <div class="progress mb-3" style="height: 10px;"><div class="progress-bar bg-danger" style="width: 75%"></div></div>
+              <p class="mb-1">Réseaux (Cisco, Administration)</p>
+              <div class="progress mb-3" style="height: 10px;"><div class="progress-bar bg-danger" style="width: 60%"></div></div>
             </div>
           </div>
         </div>
@@ -94,35 +94,35 @@
     </section>
 
     <section id="resume" class="resume section">
-      <div class="container section-title">
+      <div class="container section-title" data-aos="fade-up">
         <span class="subtitle">Mon Parcours</span>
         <h2>Résumé</h2>
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-6" data-aos="fade-right">
             <h3 class="mb-4">Expérience Professionnelle</h3>
-            <div class="exp-card mb-4">
-              <h4>Employé McDonald's</h4>
-              <p class="text-danger">2025 - Hallennes-lez-Haubourdin</p>
-              <p>Poste polyvalent : gestion du service, préparation et hygiène.</p>
+            <div class="exp-card card p-4 mb-4 shadow">
+              <h4>Employé polyvalent</h4>
+              <p class="text-danger">2025 - McDonald's Hallennes-lez-Haubourdin</p>
+              <p>Gestion du service, préparation et respect des normes d'hygiène.</p>
             </div>
-            <div class="exp-card">
+            <div class="exp-card card p-4 shadow">
               <h4>Stage - La Pioche</h4>
-              <p class="text-danger">Épicerie solidaire</p>
-              <p>Réception de marchandises et gestion des stocks.</p>
+              <p class="text-danger">Épicerie solidaire d'Haubourdin</p>
+              <p>Réception de marchandises et mise en rayon.</p>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6" data-aos="fade-left">
             <h3 class="mb-4">Éducation</h3>
-            <div class="timeline-content mb-4">
+            <div class="timeline-content card p-4 mb-4 shadow">
               <h4>BUT Réseaux & Télécommunications</h4>
               <p class="text-danger">IUT de Béthune | En cours</p>
             </div>
-            <div class="timeline-content">
+            <div class="timeline-content card p-4 shadow">
               <h4>Baccalauréat Général</h4>
               <p class="text-danger">Lycée Beaupré | 2025</p>
-              <p>Spécialités Mathématiques et NSI.</p>
+              <p>Spécialités Mathématiques et NSI. Mention Assez Bien.</p>
             </div>
           </div>
         </div>
@@ -130,37 +130,28 @@
     </section>
 
     <section id="portfolio" class="portfolio section">
-      <div class="container section-title">
+      <div class="container section-title" data-aos="fade-up">
         <span class="subtitle">Réalisations</span>
         <h2>Portfolio R&T</h2>
-        <p>Compétences du Programme National (PN)</p>
+        <p>Compétences : Administrer, Connecter, Programmer, Sécuriser, Surveiller.</p>
       </div>
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6">
-            <div class="portfolio-card">
-              <div class="p-4">
+            <div class="portfolio-card card shadow overflow-hidden">
+              <img src="assets/img/portfolio/portfolio-1.webp" class="img-fluid" alt="Programmer">
+              <div class="p-3">
                 <span class="badge bg-danger mb-2">Programmer</span>
                 <h4>Scripts Python</h4>
-                <p>Développement d'outils d'automatisation.</p>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="portfolio-card">
-              <div class="p-4">
+            <div class="portfolio-card card shadow overflow-hidden">
+              <img src="assets/img/portfolio/portfolio-2.webp" class="img-fluid" alt="Connecter">
+              <div class="p-3">
                 <span class="badge bg-danger mb-2">Connecter</span>
-                <h4>Configuration Cisco</h4>
-                <p>Mise en place de topologies réseaux.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="portfolio-card">
-              <div class="p-4">
-                <span class="badge bg-danger mb-2">Administrer</span>
-                <h4>Administration Linux</h4>
-                <p>Gestion de services et utilisateurs.</p>
+                <h4>Topologie Cisco</h4>
               </div>
             </div>
           </div>
@@ -173,20 +164,14 @@
   <footer id="footer" class="footer">
     <div class="container text-center py-4">
       <h4 class="sitename">Mentions Légales</h4>
-      <p><strong>Responsable de publication :</strong> Maël Massin</p>
-      <p><strong>Hébergeur :</strong> GitHub Pages (GitHub Inc.)</p>
-      <p>© Copyright 2026 <strong>Maël Massin</strong> - Tous droits réservés</p>
-      <div class="mt-2">
-        <a href="https://github.com/MaelMassin" class="text-white mx-2"><i class="bi bi-github"></i></a>
-        <a href="#" class="text-white mx-2"><i class="bi bi-linkedin"></i></a>
-      </div>
+      <p><strong>Responsable :</strong> Maël Massin | <strong>Hébergeur :</strong> GitHub Pages</p>
+      <p>© Copyright 2026 Maël Massin - Tous droits réservés</p>
     </div>
   </footer>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
-
   <script src="assets/js/main.js"></script>
 
 </body>
