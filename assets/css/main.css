@@ -72,9 +72,10 @@ section, .section {
 
 /* --- CONFIGURATION IMAGE SYNTHWAVE (CORRIGÉ) --- */
 main.main {
-    /* Utilisation de l'image Synthwave convertie ou originale */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+    /* Augmenter l'obscurité (0.8 au lieu de 0.7) pour faire ressortir le texte */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), 
                       url('../img/image_fcf787.jpg'); 
+ 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
