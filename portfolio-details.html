@@ -26,11 +26,9 @@
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <h1 class="sitename">Portfolio de Maël</h1>
       </a>
-
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html#hero">Home</a></li>
@@ -41,7 +39,6 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
     </div>
   </header>
 
@@ -49,38 +46,22 @@
 
     <div class="page-title">
       <div class="container" data-aos="fade-up">
+        <h1>Détails du Projet</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
             <li class="current">Détails du Projet</li>
           </ol>
         </nav>
-        <h1>Détails du Projet</h1>
       </div>
     </div>
 
     <section id="portfolio-details" class="portfolio-details section">
-
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-5">
 
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper init-swiper">
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": { "delay": 4000 },
-                  "slidesPerView": 1,
-                  "spaceBetween": 0,
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <img src="assets/img/portfolio/portfolio-1.jpg" alt="Aperçu Projet" class="img-fluid">
@@ -89,66 +70,47 @@
               <div class="swiper-pagination"></div>
             </div>
 
-            <div class="portfolio-content profile-card mt-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="portfolio-content profile-card mt-4">
               <h2>Description détaillée</h2>
               <p>
-                Remplace ce texte par la présentation de ta matière. Par exemple : "Administration système et réseau sous Linux ou configuration de routeurs Cisco en BUT R&T."
+                Présente ici ton projet. Par exemple ton travail sur les réseaux Cisco ou tes scripts Python du club Asimov.
               </p>
-
               <div class="highlights-box mt-4">
-                <h4>Points clés du projet</h4>
+                <h4>Points clés</h4>
                 <ul>
-                  <li><i class="bi bi-check-circle"></i> Analyse des besoins techniques</li>
-                  <li><i class="bi bi-check-circle"></i> Mise en place de l'infrastructure</li>
-                  <li><i class="bi bi-check-circle"></i> Optimisation des performances</li>
+                  <li><i class="bi bi-check-circle"></i> Analyse technique</li>
+                  <li><i class="bi bi-check-circle"></i> Mise en œuvre</li>
+                  <li><i class="bi bi-check-circle"></i> Tests et résultats</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <div class="col-lg-4">
-            <div class="sidebar profile-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="sidebar profile-card">
+              <h3>Infos Projet</h3>
+              <div class="info-item d-flex justify-content-between border-bottom py-2">
+                <span class="label">Matière :</span>
+                <span class="value">Réseaux & Télécoms</span>
+              </div>
+              <div class="info-item d-flex justify-content-between border-bottom py-2">
+                <span class="label">Date :</span>
+                <span class="value">2025</span>
+              </div>
               
-              <div class="info-card">
-                <h3>Infos Projet</h3>
-                <div class="info-item d-flex justify-content-between border-bottom py-2">
-                  <span class="label">Matière</span>
-                  <span class="value">Réseaux & Télécoms</span>
-                </div>
-                <div class="info-item d-flex justify-content-between border-bottom py-2">
-                  <span class="label">Date</span>
-                  <span class="value">2025</span>
-                </div>
-                <div class="info-item d-flex justify-content-between border-bottom py-2">
-                  <span class="label">Technologies</span>
-                  <span class="value">Cisco, Python, Wireshark</span>
-                </div>
-                
-                <div class="mt-4">
-                  <a href="assets/projets/ton-projet.zip" download class="btn-primary w-100 text-center d-block py-2 mb-2">
-                    <i class="bi bi-download"></i> Télécharger le projet
-                  </a>
-                  <a href="https://github.com/maelmassin" class="btn-secondary w-100 text-center d-block py-2" target="_blank">
-                    <i class="bi bi-github"></i> Voir sur GitHub
-                  </a>
-                </div>
+              <div class="mt-4">
+                <a href="assets/projets/ton-projet.zip" download class="btn-primary w-100 text-center d-block py-2 mb-2">
+                  <i class="bi bi-download"></i> Télécharger le projet
+                </a>
+                <a href="https://github.com/maelmassin" class="btn-secondary w-100 text-center d-block py-2" target="_blank">
+                  <i class="bi bi-github"></i> Voir sur GitHub
+                </a>
               </div>
-
-              <div class="tags-card mt-4">
-                <h3>Tags</h3>
-                <div class="tags">
-                  <span class="badge bg-secondary">Administration</span>
-                  <span class="badge bg-secondary">Sécurité</span>
-                  <span class="badge bg-secondary">Réseaux</span>
-                </div>
-              </div>
-
             </div>
           </div>
 
         </div>
       </div>
-
     </section>
 
   </main>
@@ -163,9 +125,7 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>
