@@ -5,9 +5,19 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Portfolio de Maël Massin</title>
+  <meta name="description" content="Étudiant en BUT Réseaux et Télécommunications - IUT de Béthune">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Raleway:wght@300;400;600;700&family=Mulish:wght@300;400;700&display=swap" rel="stylesheet">
+
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
@@ -20,9 +30,9 @@
       </a>
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#hero" class="active">Accueil</a></li>
           <li><a href="#about">À propos</a></li>
-          <li><a href="#resume">Résumé</a></li>
+          <li><a href="#resume">CV</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -36,49 +46,47 @@
       <img src="assets/img/profile/profile-bg-5.webp" alt="Background">
       <div class="container text-center" data-aos="fade-up">
         <h2>Bonjour, je m'appelle Maël Massin.</h2>
-        <p>Je suis <span class="typed" data-typed-items="étudiant en R&T, passionné, programmeur"></span><span class="typed-cursor"></span></p>
+        <p>Je suis <span class="typed" data-typed-items="étudiant en R&T, passionné, programmeur"></span><span class="typed-cursor" aria-hidden="true"></span></p>
       </div>
     </section>
 
     <section id="about" class="about section">
       <div class="container section-title" data-aos="fade-up">
-        <span class="subtitle">À propos de moi</span>
+        <span class="subtitle">Présentation</span>
         <h2>À propos de moi</h2>
-        <p>Étudiant en BUT Réseaux & Télécommunications à l'IUT de Béthune.</p>
+        <p>Étudiant en BUT Réseaux & Télécommunications à l'IUT de Béthune, je me spécialise dans les infrastructures numériques.</p>
       </div>
 
       <div class="container">
         <div class="row gy-5">
           <div class="col-lg-4" data-aos="fade-up">
-            <div class="profile-card">
-              <div class="profile-header">
-                <img src="assets/img/profile/profile-bg-5.webp" class="img-fluid rounded-circle" alt="Maël" style="width:150px;">
-                <h3>Maël Massin</h3>
-                <span class="role">Étudiant</span>
-              </div>
+            <div class="profile-card text-center">
+              <img src="assets/img/profile/profile-bg-5.webp" class="img-fluid rounded-circle mb-3" alt="Maël" style="width:150px; height:150px; object-fit: cover;">
+              <h3>Maël Massin</h3>
+              <p class="role">Étudiant R&T</p>
               <div class="profile-actions mt-3">
-                <a href="#" class="btn btn-danger w-100 mb-2">Download CV</a>
-                <a href="#" class="btn btn-outline-light w-100">Contact</a>
+                <a href="#" class="btn btn-danger w-100 mb-2">Télécharger CV</a>
+                <a href="mailto:votre-email@exemple.com" class="btn btn-outline-light w-100">Me contacter</a>
               </div>
             </div>
           </div>
 
           <div class="col-lg-8" data-aos="fade-up">
-            <div class="content-wrapper p-4">
+            <div class="content-wrapper">
               <h2>Transformer les idées en réalité numérique</h2>
               <div class="row mt-4">
                 <div class="col-md-6 mb-3">
-                  <strong>Expérience:</strong><br>1ère année BUT R&T
+                  <strong>Expérience :</strong><br>1ère année BUT R&T
                 </div>
                 <div class="col-md-6 mb-3">
-                  <strong>Diplôme:</strong><br>Bachelier
+                  <strong>Diplôme :</strong><br>Bachelier
                 </div>
               </div>
-              <h3 class="mt-4">Compétences</h3>
-              <p>Programmation (75%)</p>
-              <div class="progress mb-3"><div class="progress-bar bg-danger" style="width: 75%"></div></div>
-              <p>Réseau (60%)</p>
-              <div class="progress"><div class="progress-bar bg-danger" style="width: 60%"></div></div>
+              <h3 class="mt-4">Compétences techniques</h3>
+              <p>Programmation (Python, JavaScript)</p>
+              <div class="progress mb-3"><div class="progress-bar bg-danger" style="width: 75%">75%</div></div>
+              <p>Réseaux (Cisco, Administration)</p>
+              <div class="progress mb-3"><div class="progress-bar bg-danger" style="width: 60%">60%</div></div>
             </div>
           </div>
         </div>
@@ -87,22 +95,73 @@
 
     <section id="resume" class="resume section">
       <div class="container section-title">
+        <span class="subtitle">Mon Parcours</span>
         <h2>Résumé</h2>
       </div>
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h3>Expérience</h3>
-            <div class="exp-card p-3 mb-3">
+            <h3 class="mb-4">Expérience Professionnelle</h3>
+            <div class="exp-card mb-4">
               <h4>Employé McDonald's</h4>
-              <p>2025 - Hallennes-lez-Haubourdin</p>
+              <p class="text-danger">2025 - Hallennes-lez-Haubourdin</p>
+              <p>Poste polyvalent : gestion du service, préparation et hygiène.</p>
+            </div>
+            <div class="exp-card">
+              <h4>Stage - La Pioche</h4>
+              <p class="text-danger">Épicerie solidaire</p>
+              <p>Réception de marchandises et gestion des stocks.</p>
             </div>
           </div>
           <div class="col-lg-6">
-            <h3>Éducation</h3>
-            <div class="timeline-content p-3">
-              <h4>BUT Réseaux & Télécoms</h4>
-              <p>IUT de Béthune</p>
+            <h3 class="mb-4">Éducation</h3>
+            <div class="timeline-content mb-4">
+              <h4>BUT Réseaux & Télécommunications</h4>
+              <p class="text-danger">IUT de Béthune | En cours</p>
+            </div>
+            <div class="timeline-content">
+              <h4>Baccalauréat Général</h4>
+              <p class="text-danger">Lycée Beaupré | 2025</p>
+              <p>Spécialités Mathématiques et NSI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio section">
+      <div class="container section-title">
+        <span class="subtitle">Réalisations</span>
+        <h2>Portfolio R&T</h2>
+        <p>Compétences du Programme National (PN)</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="portfolio-card">
+              <div class="p-4">
+                <span class="badge bg-danger mb-2">Programmer</span>
+                <h4>Scripts Python</h4>
+                <p>Développement d'outils d'automatisation.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="portfolio-card">
+              <div class="p-4">
+                <span class="badge bg-danger mb-2">Connecter</span>
+                <h4>Configuration Cisco</h4>
+                <p>Mise en place de topologies réseaux.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="portfolio-card">
+              <div class="p-4">
+                <span class="badge bg-danger mb-2">Administrer</span>
+                <h4>Administration Linux</h4>
+                <p>Gestion de services et utilisateurs.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -112,16 +171,23 @@
   </main>
 
   <footer id="footer" class="footer">
-    <div class="container text-center">
-      <span class="sitename">Mentions Légales</span>
-      <p>Responsable publication : Maël Massin | Hébergeur : GitHub Pages</p>
-      <p>© Copyright <strong>Maël Massin</strong> - All Rights Reserved</p>
+    <div class="container text-center py-4">
+      <h4 class="sitename">Mentions Légales</h4>
+      <p><strong>Responsable de publication :</strong> Maël Massin</p>
+      <p><strong>Hébergeur :</strong> GitHub Pages (GitHub Inc.)</p>
+      <p>© Copyright 2026 <strong>Maël Massin</strong> - Tous droits réservés</p>
+      <div class="mt-2">
+        <a href="https://github.com/MaelMassin" class="text-white mx-2"><i class="bi bi-github"></i></a>
+        <a href="#" class="text-white mx-2"><i class="bi bi-linkedin"></i></a>
+      </div>
     </div>
   </footer>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
+
   <script src="assets/js/main.js"></script>
+
 </body>
 </html>
