@@ -107,3 +107,39 @@ main.main {
   .section-title h2 { font-size: 2.5rem; }
   main.main { background-attachment: scroll; } /* Meilleure performance sur mobile */
 }
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-avatar {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+}
+
+.profile-avatar img {
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    background: #2ecc71; /* Vert connecté */
+    border: 3px solid var(--surface-color);
+    border-radius: 50%;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    margin: 5px;
+}
