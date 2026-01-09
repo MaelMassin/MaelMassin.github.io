@@ -5,34 +5,82 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Programmer - Maël Massin</title>
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
+
 <body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">Maël Massin</h1>
+      </a>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Retour Accueil</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <main class="main">
-    <div class="page-title"><div class="container"><h1>Programmation & IA</h1></div></div>
+
+    <div class="page-title">
+      <div class="container">
+        <h1>Programmation & Développement</h1>
+      </div>
+    </div>
+
     <section class="portfolio-details section">
       <div class="container">
         <div class="row gy-4">
+
           <div class="col-lg-8">
-            <div class="portfolio-content profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px;">
-              <h2>Développement Python et JavaScript</h2>
-              <p>Réalisations au sein du Club Asimov et lors de journées d'immersion.</p>
+            <div class="portfolio-content profile-card mb-4" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h2 style="color:var(--accent-color);">SAÉ 1.05 : Traitement de données publiques</h2>
+              <p>L'objectif principal est de prouver ma capacité à automatiser la récupération et la transformation de données réseau.</p>
+              <ul style="list-style: none; padding: 0;">
+                <li class="mb-3"><i class="bi bi-cpu-fill text-danger me-2"></i> <strong>Script d'automatisation :</strong> Développement d'un script Python capable de récupérer des données au format <strong>CSV</strong> sur data.gouv.fr.</li>
+                <li class="mb-3"><i class="bi bi-cpu-fill text-danger me-2"></i> <strong>Analyse & Calculs :</strong> Agrégation des données (calcul de moyennes, maximums, filtrage) et conversion au format <strong>JSON</strong>.</li>
+                <li class="mb-3"><i class="bi bi-cpu-fill text-danger me-2"></i> <strong>Visualisation :</strong> Transmission automatique des données à une API web (QuickChart) pour génération de graphiques.</li>
+                <li class="mb-3"><i class="bi bi-cpu-fill text-danger me-2"></i> <strong>Versioning :</strong> Utilisation rigoureuse de <strong>GitLab</strong> pour le stockage du code et le travail d'équipe.</li>
+              </ul>
+            </div>
+
+            <div class="portfolio-content profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h3 style="color:var(--accent-color);">Autres réalisations</h3>
+              <p>Au-delà du cadre universitaire, j'ai exploré d'autres facettes du développement :</p>
               <ul>
-                <li><i class="bi bi-code-slash text-danger"></i> Scripts d'automatisation Python</li>
-                <li><i class="bi bi-code-slash text-danger"></i> Initiation au codage IA (Epitech)</li>
+                <li><strong>Club Asimov :</strong> Programmation Python et initiation à la modélisation/impression 3D.</li>
+                <li><strong>Epitech Lille :</strong> Codage en JavaScript et initiation aux concepts de l'Intelligence Artificielle.</li>
               </ul>
             </div>
           </div>
+
           <div class="col-lg-4">
-            <div class="sidebar profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px;">
-              <h3>Technos</h3>
-              <p><strong>Langages :</strong> Python, JavaScript, Java</p>
-              <p><strong>Outils :</strong> VS Code, Git</p>
+            <div class="sidebar profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h3>Détails Techniques</h3>
+              <p><strong>Langages :</strong> Python, JavaScript</p>
+              <p><strong>Formats :</strong> CSV, JSON, Markdown</p>
+              <p><strong>Outils :</strong> GitLab, VS Code, QuickChart API</p>
+              <p><strong>Responsable :</strong> Shahin Gelareh</p>
+
+              <div class="mt-4">
+                <a href="assets/docs/SAE105-Compte-Rendu.pdf" class="btn btn-danger w-100 py-3 fw-bold" download>
+                  <i class="bi bi-file-earmark-pdf-fill me-2"></i> Télécharger le Compte Rendu
+                </a>
+                <p class="text-center mt-2" style="font-size: 0.8rem; color: #888;">Disponible prochainement</p>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
+
   </main>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
