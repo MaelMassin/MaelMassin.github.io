@@ -11,37 +11,78 @@
 <body class="portfolio-details-page">
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center"><h1>Maël Massin</h1></a>
-      <nav class="navmenu"><ul><li><a href="index.html">Retour Accueil</a></li></ul></nav>
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">Maël Massin</h1>
+      </a>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Retour Accueil</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <main class="main">
-    <div class="page-title"><div class="container"><h1>Connecter l'entreprise</h1></div></div>
+    <div class="page-title">
+      <div class="container">
+        <h1>Connecter l'entreprise</h1>
+      </div>
+    </div>
+
     <section class="portfolio-details section">
       <div class="container">
         <div class="row gy-4">
+          
           <div class="col-lg-8">
-            <div class="portfolio-content profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
-              <h2 style="color:var(--accent-color);">Infrastructures Réseaux (IUT de Béthune)</h2>
-              <p>Dans le cadre de mon BUT R&T, j'apprends à concevoir et déployer des architectures réseaux robustes.</p>
+            <div class="portfolio-content profile-card mb-4" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h2 style="color:var(--accent-color);">SAÉ 1.02 : S'initier aux réseaux informatiques</h2>
+              <p>Mise en œuvre complète d'une infrastructure réseau pour appréhender l'interaction entre les différents équipements.</p>
               <ul style="list-style: none; padding: 0;">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-danger"></i> Configuration de switchs et routeurs Cisco (VLANs, routage statique et dynamique).</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-danger"></i> Gestion de l'adressage IP (IPv4/IPv6) et services DHCP/DNS.</li>
-                <li><i class="bi bi-check-circle-fill text-danger"></i> Stage d'observation chez Boulanger : Découverte des infrastructures logistiques.</li>
+                <li class="mb-2"><i class="bi bi-diagram-3 text-danger me-2"></i> <strong>Plan d'adressage :</strong> Établissement d'un plan IPv4 complet avec masques et schémas détaillés.</li>
+                <li class="mb-2"><i class="bi bi-diagram-3 text-danger me-2"></i> <strong>Configuration :</strong> Paramétrage de postes de travail, commutateurs et serveurs web statiques.</li>
+                <li class="mb-2"><i class="bi bi-diagram-3 text-danger me-2"></i> <strong>Validation :</strong> Test de connectivité et déploiement d'une page web de présentation d'entreprise.</li>
               </ul>
             </div>
+
+            <div class="portfolio-content profile-card mb-4" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h2 style="color:var(--accent-color);">SAÉ 1.03 : Caractérisation de systèmes de transmission</h2>
+              <p>Étude technique des supports de liaison physique pour optimiser les flux de données.</p>
+              <ul style="list-style: none; padding: 0;">
+                <li class="mb-2"><i class="bi bi-reception-4 text-danger me-2"></i> <strong>Mesures physiques :</strong> Analyse de l'atténuation et du retard sur câbles Ethernet et Coaxiaux.</li>
+                <li class="mb-2"><i class="bi bi-reception-4 text-danger me-2"></i> <strong>Simulation :</strong> Utilisation de logiciels spécialisés pour confronter les mesures aux équations théoriques.</li>
+              </ul>
+            </div>
+
+            <div class="portfolio-content profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h3 style="color:var(--accent-color);">Expérience Terrain</h3>
+              <p><strong>Stage d'observation chez Boulanger :</strong> Découverte des infrastructures réseaux logistiques et des systèmes de communication en entrepôt.</p>
+            </div>
           </div>
+
           <div class="col-lg-4">
             <div class="sidebar profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
               <h3>Détails techniques</h3>
-              <p><strong>Matériel :</strong> Cisco, Baies de brassage</p>
-              <p><strong>Formation :</strong> BUT Réseaux & Télécommunications</p>
+              <p><strong>Matériel :</strong> Cisco (Routeurs & Switches), Câblage RJ45/Coaxial</p>
+              <p><strong>Logiciels :</strong> Wireshark, Simulateurs de transmission</p>
+              <p><strong>Concepts :</strong> Modèle OSI, IPv4, Atténuation, VLANs</p>
+
+              <div class="mt-4">
+                <h5 class="text-white">Documents à télécharger :</h5>
+                <a href="assets/docs/SAE102_Compte_Rendu.pdf" class="btn btn-danger w-100 mb-3 py-2 fw-bold" download>
+                  <i class="bi bi-file-earmark-pdf me-2"></i> Rapport SAÉ 1.02
+                </a>
+                <a href="assets/docs/SAE103_Compte_Rendu.pdf" class="btn btn-danger w-100 py-2 fw-bold" download>
+                  <i class="bi bi-file-earmark-pdf me-2"></i> Rapport SAÉ 1.03
+                </a>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
   </main>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
