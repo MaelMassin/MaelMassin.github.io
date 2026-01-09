@@ -5,34 +5,78 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Surveiller - Maël Massin</title>
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
+
 <body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">Maël Massin</h1>
+      </a>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="index.html">Retour Accueil</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <main class="main">
-    <div class="page-title"><div class="container"><h1>Surveiller les réseaux</h1></div></div>
+
+    <div class="page-title">
+      <div class="container">
+        <h1>Surveiller les infrastructures</h1>
+      </div>
+    </div>
+
     <section class="portfolio-details section">
       <div class="container">
         <div class="row gy-4">
+
           <div class="col-lg-8">
-            <div class="portfolio-content profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px;">
-              <h2>Supervision & Analyse</h2>
-              <p>Analyse du trafic et monitoring pour garantir la disponibilité des services.</p>
-              <ul>
-                <li><i class="bi bi-eye-fill text-danger"></i> Analyse Wireshark</li>
-                <li><i class="bi bi-eye-fill text-danger"></i> Monitoring de serveurs</li>
+            <div class="portfolio-content profile-card mb-4" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h2 style="color:var(--accent-color);">Supervision & Analyse de trafic</h2>
+              <p>Dans le domaine des Réseaux et Télécoms, la surveillance est cruciale pour anticiper les pannes et comprendre le comportement des flux de données.</p>
+              
+              <ul style="list-style: none; padding: 0;">
+                <li class="mb-3"><i class="bi bi-eye-fill text-danger me-2"></i> <strong>Analyse de Protocoles :</strong> Utilisation de <strong>Wireshark</strong> pour capturer et analyser les trames réseaux afin de diagnostiquer des erreurs de configuration ou des problèmes de connectivité.</li>
+                <li class="mb-3"><i class="bi bi-eye-fill text-danger me-2"></i> <strong>Test de Connectivité :</strong> Surveillance de l'état des liaisons via des commandes d'administration (Ping, Traceroute, ICMP) pour garantir un fonctionnement stable.</li>
+                <li class="mb-3"><i class="bi bi-eye-fill text-danger me-2"></i> <strong>Mesures Physiques :</strong> Monitoring des performances des supports de transmission (atténuation, retard) pour assurer la qualité de service (QoS).</li>
               </ul>
             </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="sidebar profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px;">
-              <h3>Logiciels</h3>
-              <p><strong>Analyse :</strong> Wireshark</p>
-              <p><strong>Systèmes :</strong> Linux, Windows Server</p>
+
+            <div class="portfolio-content profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h3 style="color:var(--accent-color);">Objectifs de surveillance</h3>
+              <p>Mon approche consiste à utiliser des outils de monitoring pour transformer des données brutes en informations exploitables afin de maintenir la disponibilité des serveurs et des services web.</p>
             </div>
           </div>
+
+          <div class="col-lg-4">
+            <div class="sidebar profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h3 style="border-bottom: 2px solid var(--accent-color); padding-bottom: 10px;">Outils de monitoring</h3>
+              <p><strong>Analyse réseau :</strong> Wireshark</p>
+              <p><strong>Diagnostic :</strong> Commandes CLI (Linux/Cisco)</p>
+              <p><strong>Systèmes :</strong> Linux, Windows Server</p>
+
+              <div class="mt-4">
+                <a href="assets/docs/Compte_Rendu_Analyse_Reseau.pdf" class="btn btn-danger w-100 py-3 fw-bold" download>
+                  <i class="bi bi-file-earmark-check me-2"></i> Rapport de Surveillance
+                </a>
+                <p class="text-center mt-2" style="font-size: 0.8rem; color: #888;">Format PDF</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
+
   </main>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
