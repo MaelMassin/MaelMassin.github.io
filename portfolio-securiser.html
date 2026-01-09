@@ -8,46 +8,66 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
+
 <body class="portfolio-details-page">
+
   <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl d-flex align-items-center">
-      <a href="index.html" class="logo d-flex align-items-center me-auto"><h1 class="sitename">Maël Massin</h1></a>
-      <nav id="navmenu" class="navmenu">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">Maël Massin</h1>
+      </a>
+      <nav class="navmenu">
         <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="index.html#portfolio" class="active">Portfolio</a></li>
+          <li><a href="index.html">Retour Accueil</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
         </ul>
       </nav>
     </div>
   </header>
+
   <main class="main">
+
     <div class="page-title">
-      <div class="container"><h1>Sécuriser les infrastructures</h1></div>
+      <div class="container">
+        <h1>Sécuriser les infrastructures</h1>
+      </div>
     </div>
+
     <section class="portfolio-details section">
       <div class="container">
         <div class="row gy-4">
+
           <div class="col-lg-8">
-            <div class="portfolio-content profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px;">
-              <h2>Défense et Cybersécurité</h2>
-              <p>Stage de découverte à Epitech Lille sur la cybersécurité et protection des données.</p>
+            <div class="portfolio-content profile-card mb-4" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h2 style="color:var(--accent-color);">SAÉ 1.01 : Sensibilisation au risque numérique</h2>
+              <p>Mise en situation professionnelle en tant que <strong>RSSI</strong> pour minimiser les risques de cyberattaques liées aux négligences humaines.</p>
+              
+              <ul style="list-style: none; padding: 0;">
+                <li class="mb-3"><i class="bi bi-shield-check text-danger me-2"></i> <strong>Hygiène Informatique :</strong> Identification et présentation des 4 bonnes pratiques majeures pour protéger une entreprise.</li>
+                <li class="mb-3"><i class="bi bi-shield-check text-danger me-2"></i> <strong>Analyse de Risques :</strong> Évaluation des conséquences (image de marque, perte d'argent, interruption d'activité) et mise en place de contre-mesures.</li>
+                <li class="mb-3"><i class="bi bi-shield-check text-danger me-2"></i> <strong>Certifications :</strong> Réussite du MOOC de l'<strong>ANSSI</strong> (SecNumAcadémie) et du cours "Introduction à la cybersécurité" de <strong>Cisco Netacad</strong>.</li>
+              </ul>
+            </div>
+
+            <div class="portfolio-content profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h3 style="color:var(--accent-color);">Défense et Cybersécurité (Epitech Lille)</h3>
+              <p>Stage de découverte intensif axé sur la protection des données et les vulnérabilités système.</p>
               <ul>
-                <li><i class="bi bi-shield-lock-fill text-danger"></i> Analyse de vulnérabilités</li>
-                <li><i class="bi bi-shield-lock-fill text-danger"></i> Mise en place de protocoles sécurisés</li>
+                <li>Analyse de vulnérabilités et initiation aux tests d'intrusion.</li>
+                <li>Mise en place de protocoles de communication sécurisés.</li>
               </ul>
             </div>
           </div>
+
           <div class="col-lg-4">
-            <div class="sidebar profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px;">
-              <h3>Infos</h3>
-              <p><strong>Domaine :</strong> Cybersécurité</p>
-              <p><strong>Lieu :</strong> Epitech Lille</p>
-              <a href="https://github.com/maelmassin" class="btn btn-danger w-100">Voir GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-</body>
-</html>
+            <div class="sidebar profile-card" style="padding:30px; background:#1a1a1a; border-radius:10px; color:#ededed;">
+              <h3 style="border-bottom: 2px solid var(--accent-color); padding-bottom: 10px;">Compétences Cybersécurité</h3>
+              <p><strong>Cadre :</strong> BUT R&T / RSSI</p>
+              <p><strong>Certifications :</strong> ANSSI, Cisco Netacad</p>
+              <p><strong>Outils :</strong> Guide d'hygiène ANSSI</p>
+
+              <div class="mt-4">
+                <a href="assets/docs/SAE101_Diaporama_Sensibilisation.pdf" class="btn btn-danger w-100 mb-3 py-2 fw-bold" download>
+                  <i class="bi bi-file-earmark-slides me-2"></i> Télécharger le Diaporama
+                </a>
+                <a href="assets/docs/Attestation_ANSSI.pdf" class="btn btn-outline-light w-100 py-2"
