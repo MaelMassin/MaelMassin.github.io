@@ -71,6 +71,18 @@
               <p class="mt-4">
                 <em>"L'administration ne se limite pas aux serveurs, elle concerne aussi la gestion rigoureuse des sources et la mise à disposition de services fiables pour l'utilisateur."</em>
               </p>
+
+              <h3>Apprentissages Critiques</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li class="mb-3"><i class="bi bi-brain-fill text-danger me-2"></i> <strong>Ce que j'ai fait :</strong>J'ai mis en œuvre le service d'hébergement de mon portfolio en configurant un déploiement continu via <strong>GitHub Pages</strong>. J'ai également administré le cycle de vie du site en gérant les versions du code source.</li>
+                <li class="mb-3"><i class="bi bi-brain-fill text-danger me-2"></i> <strong>Pourquoi je l’ai fait :</strong>Pour garantir la confidentialité des visiteurs (chiffrement TLS/SSL) et éviter de pousser par erreur des fichiers inutiles ou sensibles (fichiers de configuration locale, logs) sur un dépôt public.</li>
+                <li class="mb-3"><i class="bi bi-brain-fill text-danger me-2"></i> <strong>Comment je l’ai fait :</strong>
+                  <ul class="list-unstyled ms-4 mt-2">
+                    <li><i class="bi bi-check2-circle text-success me-2"></i> <strong>Hébergement :</strong>J'ai utilisé l'interface de gestion de mon dépôt GitHub. Dans les paramètres "Pages", j'ai sélectionné la branche main pour qu'elle serve de racine au site.</li>
+                    <li><i class="bi bi-check2-circle text-success me-2"></i> <strong>Sécurisation :</strong>Le protocole <strong>HTTPS</strong> a été activé automatiquement par GitHub via un certificat SSL Let's Encrypt, garantissant un accès sécurisé sans intervention technique lourde de ma part.</li>
+                    <li><i class="bi bi-check2-circle text-success me-2"></i> <strong>Mise à jour :</strong>Chaque modification effectuée en local a été poussée via la commande git push, déclenchant automatiquement un "build" et un déploiement par le service <strong>GitHub Actions</strong> (visible dans l'onglet Deployments de mon dépôt).</li>
+                  </ul>
+                <li class="mb-3"><i class="bi bi-brain-fill text-danger me-2"></i> <strong>Mes difficultés :</strong>La difficulté n'était pas dans la configuration serveur (puisque GitHub l'automatise), mais dans la synchronisation. J'ai dû m'assurer que l'arborescence de mes fichiers (dossiers images, CSS, JS) en local correspondait exactement à celle du dépôt distant pour éviter les erreurs 404 lors du rendu final.</li>
             </div>
           </div>
 
