@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -6,14 +6,12 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Administrer - Maël Massin</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Mulish:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
 
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
@@ -27,7 +25,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html#hero">Accueil</a></li>
-          <li><a href="administrer-AC.html" class="active">Portfolio</a></li>
+          <li><a href="AC-administrer.html" class="active">Portfolio</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -41,7 +39,7 @@
         <h1>Administrer les services Internet</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="administrer-AC.html">Retour aux AC</a></li>
+            <li><a href="AC-administrer.html">Compétences</a></li>
             <li class="current">SAÉ 1.04</li>
           </ol>
         </nav>
@@ -54,53 +52,74 @@
         <div class="row gy-4">
 
           <div class="col-lg-8">
-            <div class="portfolio-content profile-card" style="padding: 30px; background: #1a1a1a; border-radius: 10px; border: 1px solid #333; color: #ededed;">
-              <h2 style="color: var(--accent-color);">SAÉ 1.04 : Création d'un site web personnel</h2>
+            <div class="portfolio-content profile-card">
+              
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="mb-0">SAÉ 1.04 : Création d'un site web personnel</h2>
+                <a href="AC-administrer.html" class="btn-getstarted" style="margin:0; font-size: 12px;">
+                  <i class="bi bi-shield-check me-1"></i> Voir AC
+                </a>
+              </div>
+
               <p>
                 Ce projet consiste en la conception, l'administration et l'hébergement d'un portfolio professionnel. Il valide ma capacité à gérer un service web de A à Z.
               </p>
-              <hr style="border-color: #444;">
               
-              <h3>Compétences mises en œuvre</h3>
-              <ul style="list-style: none; padding: 0;">
-                <li class="mb-3"><i class="bi bi-gear-fill text-danger me-2"></i> <strong>Déploiement & Hébergement :</strong> Configuration d'un dépôt <strong>GitHub</strong> et déploiement via GitHub Pages pour un accès public.</li>
-                <li class="mb-3"><i class="bi bi-gear-fill text-danger me-2"></i> <strong>Gestion de version :</strong> Utilisation des commandes <code>git add</code>, <code>commit</code> et <code>push</code> pour administrer les mises à jour du site.</li>
-                <li class="mb-3"><i class="bi bi-gear-fill text-danger me-2"></i> <strong>Intégration Web :</strong> Adaptation d'un template Bootstrap responsive, respect des recommandations W3C et optimisation des ressources (images, chemins relatifs).</li>
-              </ul>
+              <hr style="border-color: rgba(255,255,255,0.1);">
+              
+              <div class="highlights-box">
+                <h4>Compétences mises en œuvre</h4>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> <strong>Déploiement & Hébergement :</strong> Configuration d'un dépôt <strong>GitHub</strong> et déploiement via GitHub Pages.</li>
+                  <li><i class="bi bi-check-circle"></i> <strong>Gestion de version :</strong> Utilisation des commandes <code>git</code> pour administrer les mises à jour.</li>
+                  <li><i class="bi bi-check-circle"></i> <strong>Intégration Web :</strong> Adaptation d'un template Bootstrap responsive et respect W3C.</li>
+                </ul>
+              </div>
 
-              <p class="mt-4">
-                <em>"L'administration ne se limite pas aux serveurs, elle concerne aussi la gestion rigoureuse des sources et la mise à disposition de services fiables pour l'utilisateur."</em>
-              </p>
+              <blockquote>
+                <i class="bi bi-quote quote-icon"></i>
+                <p>
+                  L'administration ne se limite pas aux serveurs, elle concerne aussi la gestion rigoureuse des sources et la mise à disposition de services fiables.
+                </p>
+              </blockquote>
 
               <h3>Apprentissages Critiques</h3>
-              <ul style="list-style: none; padding: 0;">
-                <li class="mb-3"><i class="bi bi-lightbulb-fill text-danger" style="font-size: 1.5rem;"></i> <strong>Ce que j'ai fait :</strong>J'ai mis en œuvre le service d'hébergement de mon portfolio en configurant un déploiement continu via <strong>GitHub Pages</strong>. J'ai également administré le cycle de vie du site en gérant les versions du code source.</li>
-                <li class="mb-3"><i class="bi bi-lightbulb-fill text-danger" style="font-size: 1.5rem;"></i> <strong>Pourquoi je l’ai fait :</strong>Pour garantir la confidentialité des visiteurs (chiffrement TLS/SSL) et éviter de pousser par erreur des fichiers inutiles ou sensibles (fichiers de configuration locale, logs) sur un dépôt public.</li>
-                <li class="mb-3"><i class="bi bi-lightbulb-fill text-danger" style="font-size: 1.5rem;"></i> <strong>Comment je l’ai fait :</strong>
-                  <ul class="list-unstyled ms-4 mt-2">
-                    <li><i class="bi bi-check2-circle text-success me-2"></i> <strong>Hébergement :</strong>J'ai utilisé l'interface de gestion de mon dépôt GitHub. Dans les paramètres "Pages", j'ai sélectionné la branche main pour qu'elle serve de racine au site.</li>
-                    <li><i class="bi bi-check2-circle text-success me-2"></i> <strong>Sécurisation :</strong>Le protocole <strong>HTTPS</strong> a été activé automatiquement par GitHub via un certificat SSL Let's Encrypt, garantissant un accès sécurisé sans intervention technique lourde de ma part.</li>
-                    <li><i class="bi bi-check2-circle text-success me-2"></i> <strong>Mise à jour :</strong>Chaque modification effectuée en local a été poussée via la commande git push, déclenchant automatiquement un "build" et un déploiement par le service <strong>GitHub Actions</strong> (visible dans l'onglet Deployments de mon dépôt).</li>
-                  </ul>
-                <li class="mb-3"><i class="bi bi-lightbulb-fill text-danger" style="font-size: 1.5rem;"></i> <strong>Mes difficultés :</strong>La difficulté n'était pas dans la configuration serveur (puisque GitHub l'automatise), mais dans la synchronisation. J'ai dû m'assurer que l'arborescence de mes fichiers (dossiers images, CSS, JS) en local correspondait exactement à celle du dépôt distant pour éviter les erreurs 404 lors du rendu final.</li>
+              <p>
+                La mise en œuvre du service d'hébergement via <strong>GitHub Pages</strong> a permis de comprendre le cycle de déploiement continu. La sécurisation a été assurée par l'activation automatique du protocole <strong>HTTPS</strong> via SSL Let's Encrypt.
+              </p>
+              
+              <div class="text-center mt-5">
+                <a href="AC-administrer.html" class="btn-primary">
+                  <i class="bi bi-list-check me-2"></i> Accéder aux fiches AC1, AC2, AC3
+                </a>
+              </div>
             </div>
           </div>
 
           <div class="col-lg-4">
-            <div class="sidebar profile-card" style="padding: 30px; background: #1a1a1a; border-radius: 10px; border: 1px solid #333; color: #ededed;">
-              <h3 style="border-bottom: 2px solid var(--accent-color); padding-bottom: 10px;">Détails de gestion</h3>
-              
-              <div class="info-item d-flex justify-content-between py-3 border-bottom border-secondary">
-                <strong>Catégorie :</strong>
-                <span>Hébergement Web</span>
-              </div>
-              <div class="info-item d-flex justify-content-between py-3 border-bottom border-secondary">
-                <strong>Hébergeur :</strong>
-                <span>GitHub Pages</span>
-              </div>
-              <div class="info-item d-flex justify-content-between py-3 border-bottom border-secondary">
-                <strong>Technos :</strong>
-                <span>HTML, CSS, Git</span>
+            <div class="sidebar">
+              <div class="info-card">
+                <h3>Détails du projet</h3>
+                <div class="info-item">
+                  <span class="label">Catégorie</span>
+                  <span class="value">Hébergement Web</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">Hébergeur</span>
+                  <span class="value">GitHub Pages</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">Technologies</span>
+                  <span class="value">HTML, CSS, Git</span>
+                </div>
+                <div class="info-item">
+                  <span class="label">Année</span>
+                  <span class="value">2024</span>
+                </div>
+                
+                <a href="https://github.com" class="btn-primary mt-4">
+                  <i class="bi bi-github"></i> Voir le code source
+                </a>
               </div>
             </div>
           </div>
@@ -111,6 +130,14 @@
 
   </main>
 
+  <footer id="footer" class="footer">
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Maël Massin</strong> <span>Tous droits réservés</span></p>
+    </div>
+  </footer>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
 
 </body>
 </html>       
