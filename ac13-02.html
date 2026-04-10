@@ -1,0 +1,111 @@
+Voici le code complet pour le fichier ac13-02.html.
+
+Ce modèle reprend l'intitulé exact de ta capture d'écran et conserve la structure visuelle cohérente avec ton portfolio (fond sombre et cartes de profil).
+
+HTML
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AC13.02 - Maël Massin</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Mulish:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .ac-section { margin-bottom: 30px; border-left: 3px solid var(--accent-color); padding-left: 20px; }
+    .ac-section h3 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-color); }
+    .ac-section p { color: color-mix(in srgb, var(--default-color), transparent 20%); line-height: 1.6; }
+  </style>
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl d-flex align-items-center">
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <h1 class="sitename">Maël Massin</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="AC-administrer.html">Compétences</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main py-5 dark-background">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <span class="subtitle">Bilan d'Apprentissage</span>
+        <h2>AC13.02 | Lire, exécuter, corriger et modifier un programme</h2>
+      </div>
+
+      <div class="profile-card" data-aos="fade-up">
+        
+        <div class="mb-4">
+          <a href="AC-administrer.html" class="btn btn-outline-light btn-sm">
+            <i class="bi bi-arrow-left"></i> Retour à la liste
+          </a>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+
+            <div class="ac-section">
+              <h3><i class="bi bi-activity me-2"></i>Ce que j’ai fait</h3>
+              <p>Dans le cadre de mes projets, j'ai analysé des codes sources existants pour en comprendre la logique, lancé des scripts pour vérifier leur comportement et apporté des modifications pour corriger des bugs ou ajouter des fonctionnalités.</p>
+            </div>
+
+            <div class="ac-section">
+              <h3><i class="bi bi-question-circle me-2"></i>Pourquoi je l’ai fait</h3>
+              <p>Cela permet de s'approprier un projet technique, d'assurer la maintenance d'une application et de garantir que le programme répond correctement aux besoins de l'utilisateur final.</p>
+            </div>
+
+            <div class="ac-section">
+              <h3><i class="bi bi-tools me-2"></i>Comment je l’ai fait</h3>
+              <p><strong>Méthode :</strong> Analyse ligne par ligne, tests unitaires et débogage pas à pas.<br>
+                 <strong>Outils :</strong> Visual Studio Code, Python IDLE, Debugger Chrome DevTools.<br>
+                 <strong>Ressources :</strong> Documentations techniques (MDN, Python.org), Stack Overflow.</p>
+            </div>
+
+            <div class="ac-section">
+              <h3><i class="bi bi-exclamation-triangle me-2"></i>Mes difficultés</h3>
+              <p>Comprendre des algorithmes complexes écrits par d'autres personnes ou identifier l'origine d'une erreur silencieuse (qui ne bloque pas le code mais fausse les résultats).</p>
+            </div>
+
+            <div class="ac-section">
+              <h3><i class="bi bi-lightbulb me-2"></i>Ce que j’en ai appris</h3>
+              <p>J'ai appris à lire du code de manière structurée et j'ai acquis des réflexes de débogage pour isoler rapidement un problème dans un script complexe.</p>
+            </div>
+
+            <div class="ac-section">
+              <h3><i class="bi bi-arrow-repeat me-2"></i>Ce que je ferais autrement</h3>
+              <p>Je mettrais davantage de commentaires dans mon propre code pour faciliter la relecture par autrui et j'utiliserais plus systématiquement des outils de contrôle de version (Git) pour chaque petite modification.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="container text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Maël Massin</strong></p>
+    </div>
+  </footer>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
