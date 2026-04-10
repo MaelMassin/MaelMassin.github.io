@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Administrer - Maël Massin</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <h1 class="sitename">Maël Massin</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Accueil</a></li>
+          <li><a href="AC-administrer.html" class="active">Portfolio</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div class="page-title">
+      <div class="container">
+        <h1>Administrer les services Internet</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="AC-administrer.html">Retour aux AC</a></li>
+            <li class="current">SAÉ 1.04</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-content profile-card" style="padding: 30px; background: #1a1a1a; border-radius: 10px; border: 1px solid #333; color: #ededed;">
+              <h2 style="color: var(--accent-color);">SAÉ 1.04 : Création d'un site web personnel</h2>
+              <p>
+                Ce projet consiste en la conception, l'administration et l'hébergement d'un portfolio professionnel. Il valide ma capacité à gérer un service web de A à Z.
+              </p>
+              <hr style="border-color: #444;">
+              
+              <h3>Compétences mises en œuvre</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li class="mb-3"><i class="bi bi-gear-fill text-danger me-2"></i> <strong>Déploiement & Hébergement :</strong> Configuration d'un dépôt <strong>GitHub</strong> et déploiement via GitHub Pages pour un accès public.</li>
+                <li class="mb-3"><i class="bi bi-gear-fill text-danger me-2"></i> <strong>Gestion de version :</strong> Utilisation des commandes <code>git add</code>, <code>commit</code> et <code>push</code> pour administrer les mises à jour du site.</li>
+                <li class="mb-3"><i class="bi bi-gear-fill text-danger me-2"></i> <strong>Intégration Web :</strong> Adaptation d'un template Bootstrap responsive, respect des recommandations W3C et optimisation des ressources (images, chemins relatifs).</li>
+              </ul>
+
+              <p class="mt-4">
+                <em>"L'administration ne se limite pas aux serveurs, elle concerne aussi la gestion rigoureuse des sources et la mise à disposition de services fiables pour l'utilisateur."</em>
+              </p>
+
+              <h3>Apprentissages Critiques</h3>
+              <ul style="list-style: none; padding: 0;">
+                <li class="mb-3"><i class="bi bi-lightbulb-fill text-danger" style="font-size: 1.5rem;"></i> <strong>Ce que j'ai fait :</strong>J'ai mis en œuvre le service d'hébergement de mon portfolio en configurant un déploiement continu via <strong>GitHub Pages</strong>. J'ai également administré le cycle de vie du site en gérant les versions du code source.</li>
+                <li class="mb-3"><i class="bi bi-lightbulb-fill text-danger" style="font-size: 1.5rem;"></i> <strong>Pourquoi je l’ai fait :</strong>Pour garantir la confidentialité des visiteurs (chiffrement TLS/SSL) et éviter de pousser par erreur des fichiers inutiles ou sensibles (fichiers de configuration locale, logs) sur un dépôt public.</li>
+                <li class="mb-3"><i class="bi bi-lightbulb-fill text-danger" style="font-size: 1.5rem;"></i> <strong>Comment je l’ai fait :</strong>
+                  <ul class="list-unstyled ms-4 mt-2">
+                    <li><i class="bi bi-check2-circle text-success me-2"></i> <strong>Hébergement :</strong>J'ai utilisé l'interface de gestion de mon dépôt GitHub. Dans les paramètres "Pages", j'ai sélectionné la branche main pour qu'elle serve de racine au site.</li>
+                    <li><i class="bi bi-check2-circle text-success me-2"></i> <strong>Sécurisation :</strong>Le protocole <strong>HTTPS</strong> a été activé automatiquement par GitHub via un certificat SSL Let's Encrypt, garantissant un accès sécurisé sans intervention technique lourde de ma part.</li>
+                    <li><i class="bi bi-check2-circle text-success me-2"></i> <strong>Mise à jour :</strong>Chaque modification effectuée en local a été poussée via la commande git push, déclenchant automatiquement un "build" et un déploiement par le service <strong>GitHub Actions</strong> (visible dans l'onglet Deployments de mon dépôt).</li>
+                  </ul>
+                <li class="mb-3"><i class="bi bi-lightbulb-fill text-danger" style="font-size: 1.5rem;"></i> <strong>Mes difficultés :</strong>La difficulté n'était pas dans la configuration serveur (puisque GitHub l'automatise), mais dans la synchronisation. J'ai dû m'assurer que l'arborescence de mes fichiers (dossiers images, CSS, JS) en local correspondait exactement à celle du dépôt distant pour éviter les erreurs 404 lors du rendu final.</li>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="sidebar profile-card" style="padding: 30px; background: #1a1a1a; border-radius: 10px; border: 1px solid #333; color: #ededed;">
+              <h3 style="border-bottom: 2px solid var(--accent-color); padding-bottom: 10px;">Détails de gestion</h3>
+              
+              <div class="info-item d-flex justify-content-between py-3 border-bottom border-secondary">
+                <strong>Catégorie :</strong>
+                <span>Hébergement Web</span>
+              </div>
+              <div class="info-item d-flex justify-content-between py-3 border-bottom border-secondary">
+                <strong>Hébergeur :</strong>
+                <span>GitHub Pages</span>
+              </div>
+              <div class="info-item d-flex justify-content-between py-3 border-bottom border-secondary">
+                <strong>Technos :</strong>
+                <span>HTML, CSS, Git</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+</body>
+</html>       
