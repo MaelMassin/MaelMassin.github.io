@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AC12.04 - Maël Massin</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Mulish:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Chemins vers les ressources (Remonter 2 fois depuis Compétence/ac-co/) -->
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .ac-section { margin-bottom: 30px; border-left: 3px solid var(--accent-color); padding-left: 20px; }
+    .ac-section h3 { font-size: 1.2rem; text-transform: uppercase; color: var(--accent-color); letter-spacing: 1px; }
+    .ac-section p { color: color-mix(in srgb, var(--default-color), transparent 20%); line-height: 1.6; }
+  </style>
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl d-flex align-items-center">
+      <a href="../../index.html" class="logo d-flex align-items-center me-auto">
+        <h1 class="sitename">Maël Massin</h1>
+      </a>
+    </div>
+  </header>
+
+  <main class="main py-5 dark-background">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <span class="subtitle">Bilan d'Apprentissage - Connecter</span>
+        <h2>AC12.04 | Connecter les systèmes de ToIP</h2>
+      </div>
+
+      <div class="profile-card" data-aos="fade-up">
+        
+        <div class="mb-4">
+          <!-- Retour au menu Connecter (Remonter d'un cran) -->
+          <a href="../ac-connecter.html" class="btn btn-outline-light btn-sm">
+            <i class="bi bi-arrow-left"></i> Retour à la liste
+          </a>
+        </div>
+
+        <!-- 1. Ce que j'ai fait -->
+        <div class="ac-section">
+          <h3><i class="bi bi-activity me-2"></i>Ce que j’ai fait</h3>
+          <p>J'ai configuré et mis en relation des terminaux de téléphonie IP (téléphones physiques ou softphones) avec un serveur de communication IPBX pour permettre le passage d'appels internes et externes.</p>
+        </div>
+
+        <!-- 2. Pourquoi je l'ai fait -->
+        <div class="ac-section">
+          <h3><i class="bi bi-question-circle me-2"></i>Pourquoi je l’ai fait</h3>
+          <p>La convergence voix-données est essentielle en entreprise. Savoir connecter ces systèmes permet de réduire les coûts d'infrastructure et d'offrir des services de communication avancés sur le réseau existant.</p>
+        </div>
+
+        <!-- 3. Comment je l'ai fait -->
+        <div class="ac-section">
+          <h3><i class="bi bi-tools me-2"></i>Comment je l’ai fait</h3>
+          <p><strong>Méthode :</strong> Création d'extensions utilisateurs sur l'interface de gestion, attribution des adresses IP et authentification via le protocole SIP.<br>
+             <strong>Outils :</strong> Serveurs Asterisk ou 3CX, téléphones IP Cisco/Yealink, logiciels de type Zoiper.<br>
+             <strong>Ressources :</strong> Protocoles de signalisation (SIP) et de transport de la voix (RTP).</p>
+        </div>
+
+        <!-- 4. Mes difficultés -->
+        <div class="ac-section">
+          <h3><i class="bi bi-exclamation-triangle me-2"></i>Mes difficultés</h3>
+          <p>La résolution des problèmes liés aux pare-feu (NAT) qui bloquent parfois le flux audio unidirectionnel et la compréhension de la hiérarchie des plans de numérotation.</p>
+        </div>
+
+        <!-- 5. Ce que j’en ai appris -->
+        <div class="ac-section">
+          <h3><i class="bi bi-lightbulb me-2"></i>Ce que j’en ai appris</h3>
+          <p>J'ai appris que la qualité de service (QoS) est cruciale pour la ToIP afin de garantir que les paquets de voix ne subissent pas de délais ou de gigue (jitter) au milieu des autres données.</p>
+        </div>
+
+        <!-- 6. Ce que je ferais autrement -->
+        <div class="ac-section">
+          <h3><i class="bi bi-arrow-repeat me-2"></i>Ce que je ferais autrement</h3>
+          <p>Je mettrais en place un VLAN dédié à la voix dès le début de la configuration pour isoler totalement le trafic téléphonique et assurer une sécurité accrue.</p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="footer text-center py-4">
+    <div class="container">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Maël Massin</strong> 2026</p>
+    </div>
+  </footer>
+
+  <!-- JS (Remonter 2 fois) -->
+  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
