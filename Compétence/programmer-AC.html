@@ -8,9 +8,9 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Mulish:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
 
+  <!-- Chemins corrigés pour sortir du dossier Compétence -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-
   <link href="../assets/css/main.css" rel="stylesheet">
 </head>
 
@@ -18,12 +18,14 @@
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <!-- Lien corrigé ici -->
+      <a href="../index.html" class="logo d-flex align-items-center me-auto">
         <h1 class="sitename">Maël Massin</h1>
       </a>
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html#hero">Accueil</a></li>
+          <!-- Lien corrigé ici -->
+          <li><a href="../index.html#hero">Accueil</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -55,42 +57,42 @@
 
         <div class="row g-3">
           <div class="col-12">
-            <a href="ac-prog/ac13-01.html" class="btn btn-outline-danger ...">AC13.01 | ...</a>
+            <a href="ac-prog/ac13-01.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
               <strong style="color: var(--contrast-color);">AC13.01 |</strong> Utiliser un système informatique et ses outils
             </a>
-            
-            <a href="ac-prog/ac13-02.html" class="btn btn-outline-danger ...">AC13.02 | ...</a>
+            <a href="ac-prog/ac13-02.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
               <strong style="color: var(--contrast-color);">AC13.02 |</strong> Lire, exécuter, corriger et modifier un programme
             </a>
-            
-            <a href="ac-prog/ac13-03.html" class="btn btn-outline-danger ...">AC13.03 | ...</a>
+            <a href="ac-prog/ac13-03.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
               <strong style="color: var(--contrast-color);">AC13.03 |</strong> Traduire un algorithme, dans un langage et pour un environnement donné
             </a>
-            
-            <a href="ac-prog/ac14-04.html" class="btn btn-outline-danger ...">AC13.04 | ...</a>
+            <a href="ac-prog/ac13-04.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
               <strong style="color: var(--contrast-color);">AC13.04 |</strong> Connaître l’architecture et les technologies d’un site Web
             </a>
-            
-            <a href="ac-prog/ac13-05.html" class="btn btn-outline-danger ...">AC13.05 | ...</a>
-              <strong style="color: var(--contrast-color);">AC13.05 |</strong> Choisir les mécanismes de gestion de données adaptés au développement de l'outil et argumenter ses choix
+            <a href="ac-prog/ac13-05.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
+              <strong style="color: var(--contrast-color);">AC13.05 |</strong> Choisir les mécanismes de gestion de données adaptés
             </a>
-
-            <a href="ac-prog/ac13-06.html" class="btn btn-outline-danger ...">AC13.06 | ...</a>
-              <strong style="color: var(--contrast-color);">AC13.06 |</strong> S’intégrer dans un environnement propice au développement et au travail collaboratif
+            <a href="ac-prog/ac13-06.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
+              <strong style="color: var(--contrast-color);">AC13.06 |</strong> S’intégrer dans un environnement collaboratif
             </a>
           </div>
         </div>
       </div>
 
-      <div class="text-center mt-5">
+      <!-- Bloc des boutons de retour SAE -->
+      <div class="d-flex justify-content-center gap-3 mt-5">
         <a href="../portfolio-SAE1.04.html" class="btn btn-secondary px-4 py-2" style="border-radius: 50px;">
           <i class="bi bi-arrow-left me-2"></i>Aller au Projet SAÉ 1.04
         </a>
-      </div>
-
-      <div class="text-center mt-5">
         <a href="../portfolio-SAE1.05.html" class="btn btn-secondary px-4 py-2" style="border-radius: 50px;">
           <i class="bi bi-arrow-left me-2"></i>Aller au Projet SAÉ 1.05
+        </a>
+      </div>
+
+      <!-- NOUVEAU : Bouton retour direct à l'accueil du site -->
+      <div class="text-center mt-4">
+        <a href="../index.html" class="btn btn-outline-light px-4 py-2" style="border-radius: 50px; opacity: 0.8;">
+          <i class="bi bi-house-door me-2"></i>Retour à l'accueil du Portfolio
         </a>
       </div>
 
@@ -103,7 +105,8 @@
     </div>
   </footer>
 
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Chemin corrigé pour le JS -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
