@@ -1,6 +1,10 @@
 from flask import Flask, render_template
 from config import USER_INFO
 
+import mimetypes
+mimetypes.add_type('text/css', '.css')
+mimetypes.add_type('application/javascript', '.js')
+
 app = Flask(__name__, template_folder='..', static_folder='..', static_url_path='')
 @app.route('/')
 def index():
