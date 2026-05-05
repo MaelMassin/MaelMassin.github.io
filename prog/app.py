@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from config import USER_INFO
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='..')
 
 @app.route('/')
 def index():
