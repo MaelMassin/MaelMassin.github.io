@@ -1,8 +1,7 @@
 from flask import Flask, render_template
 from config import USER_INFO
 
-app = Flask(__name__, template_folder='..', static_folder='..')
-
+app = Flask(__name__, template_folder='..', static_folder='..', static_url_path='')
 @app.route('/')
 def index():
     # C'est ici que la magie opère : on envoie tes infos au HTML
