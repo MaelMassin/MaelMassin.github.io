@@ -21,3 +21,4 @@ services:
       - db
     environment:
       - FLASK_ENV=development
+      - DATABASE_URL=mysql://mael:password_mael@db/portfolio_db
