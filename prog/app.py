@@ -7,7 +7,7 @@ mimetypes.add_type('text/css', '.css')
 
 app = Flask(__name__, template_folder='..', static_folder='..', static_url_path='')
 
-# On utilise la variable d'environnement fournie par Docker Compose
+# Configuration via variable d'environnement (Docker)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'mysql://mael:password_mael@db/portfolio_db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -20,15 +20,37 @@ class Competence(db.Model):
     nom = db.Column(db.String(100), nullable=False)
     niveau = db.Column(db.Integer)
 
+# --- ROUTES ---
+
 @app.route('/')
 def index():
     try:
+        # Correction : on utilise la même variable partout (mes_competences)
         mes_competences = Competence.query.all()
-    except:
-        mes_competences = [] # Évite l'erreur si la base n'est pas prête
+    except Exception as e:
+        print(f"Erreur BDD : {e}")
+        mes_competences = []
+    
     return render_template('index.html', competences=mes_competences)
 
-# N'oublie pas d'ajouter les routes ADD et DELETE ici pour la séance 3 !
+@app.route('/add', methods=['POST'])
+def add_competence():
+    nom = request.form.get('nom_competence')
+    niveau = request.form.get('niveau_competence')
+
+    if nom and niveau:
+        nouvelle_comp = Competence(nom=nom, niveau=int(niveau))
+        db.session.add(nouvelle_comp)
+        db.session.commit()
+    
+    return redirect(url_for('index'))
+
+@app.route('/delete/<int:id>')
+def delete_competence(id):
+    comp_a_supprimer = Competence.query.get_or_404(id)
+    db.session.delete(comp_a_supprimer)
+    db.session.commit()
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

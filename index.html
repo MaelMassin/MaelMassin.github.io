@@ -139,21 +139,25 @@
             <div class="section-tag">Mes Compétences</div>
             <h3>Compétences techniques</h3>
             <div class="skills-list">
-              {% for c in competences %}
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name">{{ c.nom }}</span>
-                  <span class="skill-percent">{{ c.niveau }}%</span>
-                  <a href="/delete/{{ c.id }}" style="color: #ff4d4d; font-size: 0.8rem; margin-left: 10px;">
-                    <i class="bi bi-trash"></i>
-                  </a>
+                  <span class="skill-name">Télécommunications</span>
+                  <span class="skill-percent">45%</span>
                 </div>
                 <div class="progress">
-                  <div class="progress-bar" style="width: {{ c.niveau }}%"></div>
+                  <div class="progress-bar" style="width: 45%"></div>
+                  </div>
+                </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Réseau</span>
+                  <span class="skill-percent">50%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 50%"></div>
+                  </div>
                 </div>
               </div>
-              {% endfor %}
-            </div>
           </div>
         </div>
       </div> </div> </div> </section>
