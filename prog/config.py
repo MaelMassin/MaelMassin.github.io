@@ -1,6 +1,6 @@
-USER_INFO = {
-    "nom": "Massin",
-    "prenom": "Maël",
-    "titre": "Étudiant en BUT R&T",
-    "email": "mael.haubourdin@yahoo.com"
+USER_PROFILE = {
+    'nom': 'Maël Massin',
+    'etablissement': 'IUT de Béthune',
+    'formation': 'BUT Réseaux et Télécommunications',
+    'promo': '2025'
 }
