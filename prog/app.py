@@ -136,17 +136,9 @@ def delete_competence(id):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
 
-    try:
-        # On utilise du SQL pur pour forcer la suppression immédiate
-        query = text("DELETE FROM competences WHERE id = :id")
-        db.session.execute(query, {'id': id})
-        db.session.commit()
-    except Exception as e:
-        db.session.rollback()
-        print(f"Erreur SQL : {e}")
-    finally:
-        db.session.remove() # On nettoie la connexion à fond
-        
+    comp = Competence.query.get_or_404(id)
+    db.session.delete(comp)
+    db.session.commit()
     return redirect(url_for('index'))
 
 @app.route('/competence/<int:id>')
