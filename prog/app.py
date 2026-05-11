@@ -135,9 +135,16 @@ def delete_competence(id):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
 
-    comp = Competence.query.get_or_404(id)
-    db.session.delete(comp)
-    db.session.commit()
+    try:
+        comp = Competence.query.get_or_404(id)
+        db.session.delete(comp)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback() # Annule en cas de blocage
+        print(f"Erreur lors de la suppression : {e}")
+    finally:
+        db.session.close() # Libère la connexion pour éviter le freeze
+        
     return redirect(url_for('index'))
 
 @app.route('/competence/<int:id>')
