@@ -36,4 +36,4 @@ INSERT INTO blocs (nom, code, semestre_id) VALUES ('Connecter', 'RT1-A2', 1);
 
 -- Ici le bloc_id est 1 car c'est la première ligne du dessus
 INSERT INTO competences (code, nom, niveau, bloc_id, fait) 
-VALUES ('AC12.01', 'Mesurer des signaux', 'Expert', 1, 'Mesures de signaux électriques via oscilloscope.');
+VALUES ('AC12.01', 'Mesurer des signaux', "En cours d'acquisition", 1, 'Mesures de signaux électriques via oscilloscope.');
