@@ -136,20 +136,26 @@
 
           <div class="skills-showcase">
             <div class="section-tag">Mes Compétences</div>
-            <h3>Compétences techniques</h3>
-            <div class="skills-list">
-              {% for c in competences %}
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">{{ c.nom }}</span>
-                  <span class="skill-percent">{{ c.niveau }}</span>
-                  <a href="/delete/{{ c.id }}" class="text-danger ms-2"><i class="bi bi-trash"></i></a>
-                </div>
+              <h3>Compétences techniques</h3>
+                <div class="skills-list">
+                  <div class="skill-item">
+                    <div class="skill-info">
+                      <span class="skill-name">Télécommunications</span>
+                      <span class="skill-percent">45%</span>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 45%"></div>
+                    </div>
+                  </div>
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <span class="skill-name">Réseau</span>
+                    <span class="skill-percent">50%</span>
+                  </div>
                 <div class="progress">
-                  <div class="progress-bar" style="width: 100%"></div> 
+                  <div class="progress-bar" style="width: 50%"></div>
                 </div>
               </div>
-              {% endfor %}
             </div>
           </div>
         </div>
@@ -299,31 +305,357 @@
 
     </section><!-- /Services Section -->
 
+    <section id="gestion-competences" class="competences-section">
+
+  <div class="container section-title" data-aos="fade-up">
+    <span class="subtitle">Compétences</span>
+    <h2>Compétences par semestre</h2>
+    <p>Récapitulatif de mes apprentissages critiques acquis au fil des semestres en BUT R&amp;T.</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- ── Formulaire d'ajout (admin uniquement) ─────────────────── -->
+    {% if session.logged_in %}
+    <div class="comp-form-card" data-aos="fade-up">
+      <h3><i class="bi bi-plus-circle"></i> Ajouter une compétence</h3>
+      <form action="{{ url_for('add_competence') }}" method="post" class="comp-form">
+        <div class="form-row">
+          <input
+            type="text"
+            name="nom_competence"
+            placeholder="Nom de la compétence"
+            maxlength="255"
+            required
+          />
+          <select name="niveau_competence" required>
+            <option value="">-- Niveau d'acquisition --</option>
+            <option value="non acquis">Non acquis</option>
+            <option value="en cours d'acquisition">En cours d'acquisition</option>
+            <option value="presque acquis">Presque acquis</option>
+            <option value="acquis">Acquis</option>
+            <option value="expert">Expert</option>
+          </select>
+          <select name="bloc_id" required>
+            <option value="">-- Choisir un bloc --</option>
+            {% for b in blocs %}
+              <option value="{{ b.id }}">{{ b.code }} – {{ b.nom }}</option>
+            {% endfor %}
+          </select>
+          <button type="submit" class="btn-add">
+            <i class="bi bi-plus-lg"></i> Ajouter
+          </button>
+        </div>
+      </form>
+    </div>
+    {% endif %}
+
+    <!-- ── Tableau des compétences ───────────────────────────────── -->
+    {% if competences %}
+
+      {# Regroupement par semestre via Jinja2 #}
+      {% set semestres_vus = [] %}
+
+      {% for comp in competences %}
+        {% set sem_nom = comp.bloc.semestre.nom if comp.bloc and comp.bloc.semestre else "Sans semestre" %}
+
+        {# Nouvel en-tête de semestre ? #}
+        {% if sem_nom not in semestres_vus %}
+          {% if semestres_vus %}</tbody></table></div>{% endif %}
+          {% if semestres_vus.append(sem_nom) %}{% endif %}
+
+          <div class="semestre-block" data-aos="fade-up">
+            <div class="semestre-header">
+              <i class="bi bi-calendar3"></i>
+              <h3>{{ sem_nom }}</h3>
+              <span class="comp-count">
+                {{ competences | selectattr('bloc') | selectattr('bloc.semestre') | selectattr('bloc.semestre.nom', 'equalto', sem_nom) | list | length }} compétence(s)
+              </span>
+            </div>
+            <table class="comp-table">
+              <thead>
+                <tr>
+                  <th>Bloc</th>
+                  <th>Code</th>
+                  <th>Compétence</th>
+                  <th>Niveau</th>
+                  {% if session.logged_in %}<th>Actions</th>{% endif %}
+                </tr>
+              </thead>
+              <tbody>
+        {% endif %}
+
+        {# Ligne de compétence #}
+        <tr>
+          <td>
+            <span class="bloc-badge">
+              {{ comp.bloc.code if comp.bloc else '–' }}
+            </span>
+          </td>
+          <td class="code-cell">{{ comp.code or '–' }}</td>
+          <td>{{ comp.nom }}</td>
+          <td>
+            <span class="niveau-badge niveau-{{ comp.niveau | lower | replace(' ', '-') | replace("'", '') }}">
+              {{ comp.niveau }}
+            </span>
+          </td>
+          {% if session.logged_in %}
+          <td>
+            <a
+              href="{{ url_for('delete_competence', id=comp.id) }}"
+              class="btn-delete"
+              onclick="return confirm('Supprimer « {{ comp.nom }} » ?')"
+              title="Supprimer"
+            >
+              <i class="bi bi-trash3"></i>
+            </a>
+          </td>
+          {% endif %}
+        </tr>
+
+        {# Fermer le dernier tableau #}
+        {% if loop.last %}</tbody></table></div>{% endif %}
+      {% endfor %}
+
+    {% else %}
+      <div class="comp-empty">
+        <i class="bi bi-inbox"></i>
+        <p>Aucune compétence enregistrée pour le moment.</p>
+      </div>
+    {% endif %}
+
+    <!-- ── Lien admin ──────────────────────────────────────────────── -->
+    <div class="admin-link-row">
+      {% if session.logged_in %}
+        <a href="{{ url_for('logout') }}" class="btn-admin-action">
+          <i class="bi bi-box-arrow-right"></i> Déconnexion
+        </a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="btn-admin-action">
+          <i class="bi bi-lock"></i> Espace admin
+        </a>
+      {% endif %}
+    </div>
+
+  </div><!-- /container -->
+</section>
+
+
+<!-- ── Styles spécifiques à cette section ─────────────────────────── -->
+<style>
+/* ── Section wrapper ── */
+.competences-section {
+  padding: 60px 0;
+}
+
+/* ── Carte formulaire ── */
+.comp-form-card {
+  background: var(--surface-color);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 40px;
+}
+.comp-form-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.comp-form-card h3 i { color: var(--accent-color); }
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.comp-form input[type="text"],
+.comp-form select {
+  flex: 1 1 200px;
+  padding: 10px 14px;
+  background: #0e0e0e;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: #ededed;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color .2s;
+}
+.comp-form input:focus,
+.comp-form select:focus { border-color: var(--accent-color); }
+.comp-form select option { background: #1c1c1c; }
+
+.btn-add {
+  padding: 10px 22px;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background .2s, transform .1s;
+  white-space: nowrap;
+}
+.btn-add:hover { background: #e03c3e; transform: translateY(-1px); }
+
+/* ── Bloc par semestre ── */
+.semestre-block {
+  margin-bottom: 40px;
+}
+.semestre-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.semestre-header i {
+  font-size: 1.3rem;
+  color: var(--accent-color);
+}
+.semestre-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin: 0;
+}
+.comp-count {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: rgba(217,217,217,0.45);
+  background: rgba(255,255,255,0.05);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── Tableau ── */
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface-color);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.comp-table thead tr {
+  background: rgba(255,255,255,0.04);
+}
+.comp-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: rgba(217,217,217,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.comp-table td {
+  padding: 13px 16px;
+  font-size: 0.93rem;
+  color: var(--default-color);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  vertical-align: middle;
+}
+.comp-table tbody tr:last-child td { border-bottom: none; }
+.comp-table tbody tr:hover { background: rgba(255,255,255,0.025); }
+
+/* ── Badges ── */
+.bloc-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(255,77,79,0.12);
+  color: var(--accent-color);
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.code-cell {
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  color: rgba(217,217,217,0.55) !important;
+}
+
+/* ── Badges niveau ── */
+.niveau-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.niveau-badge::before { content: "●"; font-size: 0.6rem; }
+
+.niveau-non-acquis       { background: rgba(156,163,175,.12); color: #9ca3af; }
+.niveau-en-cours-dacquisition { background: rgba(251,191,36,.12); color: #fbbf24; }
+.niveau-presque-acquis   { background: rgba(59,130,246,.12); color: #60a5fa; }
+.niveau-acquis           { background: rgba(16,185,129,.12); color: #34d399; }
+.niveau-expert           { background: rgba(255,77,79,.15); color: #ff4d4f; }
+
+/* ── Bouton supprimer ── */
+.btn-delete {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: #ff4d4f;
+  background: rgba(255,77,79,0.1);
+  text-decoration: none;
+  transition: background .2s;
+}
+.btn-delete:hover { background: rgba(255,77,79,0.25); color: #ff4d4f; }
+
+/* ── État vide ── */
+.comp-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: rgba(217,217,217,0.35);
+}
+.comp-empty i { font-size: 3rem; display: block; margin-bottom: 12px; }
+.comp-empty p { font-size: 1rem; }
+
+/* ── Lien admin ── */
+.admin-link-row {
+  text-align: right;
+  margin-top: 24px;
+}
+.btn-admin-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: rgba(217,217,217,0.55);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: border-color .2s, color .2s;
+}
+.btn-admin-action:hover { border-color: var(--accent-color); color: var(--accent-color); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .code-cell { display: none; }
+  .comp-table th:nth-child(2),
+  .comp-table td:nth-child(2) { display: none; }
+  .form-row { flex-direction: column; }
+  .comp-form input[type="text"],
+  .comp-form select,
+  .btn-add { width: 100%; }
+}
+</style>
+
     <!-- Portfolio Section -->
 <section id="portfolio" class="portfolio section">
-  {% if session.logged_in %}
-    <section id="admin">
-      <h2>Ajouter une compétence</h2>
-      <form action="/add" method="POST" class="p-3 border rounded bg-dark">
-        <div class="mb-3">
-        <input type="text" name="nom_competence" class="form-control" placeholder="Nom de la compétence (ex: AC12.01)" required>
-        </div>
-        <div class="mb-3">
-          <select name="niveau_competence" class="form-select">
-              <option value="Non acquis">Non acquis</option>
-              <option value="En cours d'acquisition">En cours d'acquisition</option>
-              <option value="Presque acquis">Presque acquis</option>
-              <option value="Acquis">Acquis</option>
-              <option value="Expert">Expert</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Enregistrer la validation</button>
-      </form>
-      <a href="/logout">Se déconnecter</a>
-    </section>
-  {% else %}
-    <p><a href="/login" style="color: grey; font-size: 0.8rem;">Connexion Admin</a></p>
-  {% endif %}
       <div class="container section-title" data-aos="fade-up">
         <span class="subtitle">Portfolio</span>
         <h2>Portfolio</h2>
