@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from markupsafe import escape
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
 import mimetypes
 import os
 
@@ -136,14 +137,15 @@ def delete_competence(id):
         return redirect(url_for('login'))
 
     try:
-        comp = Competence.query.get_or_404(id)
-        db.session.delete(comp)
+        # On utilise du SQL pur pour forcer la suppression immédiate
+        query = text("DELETE FROM competences WHERE id = :id")
+        db.session.execute(query, {'id': id})
         db.session.commit()
     except Exception as e:
-        db.session.rollback() # Annule en cas de blocage
-        print(f"Erreur lors de la suppression : {e}")
+        db.session.rollback()
+        print(f"Erreur SQL : {e}")
     finally:
-        db.session.close() # Libère la connexion pour éviter le freeze
+        db.session.remove() # On nettoie la connexion à fond
         
     return redirect(url_for('index'))
 
