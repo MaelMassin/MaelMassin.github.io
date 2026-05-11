@@ -4,7 +4,7 @@ Ce projet est un portfolio dynamique géré avec Flask et MariaDB, entièrement 
 
 ##  Aperçu du rendu final
 Voici à quoi ressemble l'interface une fois le projet lancé :
-![Capture d'écran du Portfolio](./images/final_result.png)
+![Capture d'écran du Portfolio](screenshot.png)
 
 ## 🛠️ Installation et Lancement
 1. S'assurer que Docker et Docker Compose sont installés.
