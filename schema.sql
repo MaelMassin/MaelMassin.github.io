@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS competences (
 INSERT INTO semestres (nom, code) VALUES ('Semestre 1', 'S1');
 
 -- Ici le semestre_id est 1 car c'est la première ligne du dessus
-INSERT INTO blocs (nom, code, semestre_id) VALUES ('Connecter', 'RT1-B1', 1);
+INSERT INTO blocs (nom, code, semestre_id) VALUES ('Connecter', 'RT1-A2', 1);
 
 -- Ici le bloc_id est 1 car c'est la première ligne du dessus
 INSERT INTO competences (code, nom, niveau, bloc_id, fait) 
