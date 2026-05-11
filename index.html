@@ -301,25 +301,29 @@
 
     <!-- Portfolio Section -->
 <section id="portfolio" class="portfolio section">
-  <section id="admin">
-    <h2>Ajouter une compétence</h2>
-    <form action="/add" method="POST" class="p-3 border rounded bg-dark">
-      <div class="mb-3">
+  {% if session.logged_in %}
+    <section id="admin">
+      <h2>Ajouter une compétence</h2>
+      <form action="/add" method="POST" class="p-3 border rounded bg-dark">
+        <div class="mb-3">
         <input type="text" name="nom_competence" class="form-control" placeholder="Nom de la compétence (ex: AC12.01)" required>
-      </div>
-      <div class="mb-3">
-        <select name="niveau_competence" class="form-select">
-            <option value="Non acquis">Non acquis</option>
-            <option value="En cours d'acquisition">En cours d'acquisition</option>
-            <option value="Presque acquis">Presque acquis</option>
-            <option value="Acquis">Acquis</option>
-            <option value="Expert">Expert</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary w-100">Enregistrer la validation</button>
-    </form>
-  </section>
-
+        </div>
+        <div class="mb-3">
+          <select name="niveau_competence" class="form-select">
+              <option value="Non acquis">Non acquis</option>
+              <option value="En cours d'acquisition">En cours d'acquisition</option>
+              <option value="Presque acquis">Presque acquis</option>
+              <option value="Acquis">Acquis</option>
+              <option value="Expert">Expert</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Enregistrer la validation</button>
+      </form>
+      <a href="/logout">Se déconnecter</a>
+    </section>
+  {% else %}
+    <p><a href="/login" style="color: grey; font-size: 0.8rem;">Connexion Admin</a></p>
+  {% endif %}
       <div class="container section-title" data-aos="fade-up">
         <span class="subtitle">Portfolio</span>
         <h2>Portfolio</h2>

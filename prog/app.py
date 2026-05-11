@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import mimetypes
 import os
@@ -6,6 +6,7 @@ import os
 mimetypes.add_type('text/css', '.css')
 
 app = Flask(__name__, template_folder='..', static_folder='..', static_url_path='')
+app.secret_key = 'LeclercAzure'
 
 # --- CONFIGURATION DU PROFIL (La clé manquante était ici !) ---
 app.config['USER_PROFILE'] = {
@@ -54,36 +55,60 @@ class Competence(db.Model):
 
 # --- ROUTES ---
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if username == 'admin' and password == 'admin':
+            session['logged_in'] = True
+            return redirect(url_for('index'))
+        else:
+            return "Identifiants incorrects", 401
+            
+    # Un petit formulaire propre pour le login
+    return '''
+        <body style="background:#1a1a1a; color:white; font-family:sans-serif; display:flex; justify-content:center; align-items:center; height:100vh;">
+            <form method="post" style="background:#2a2a2a; padding:20px; border-radius:10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                <h2 style="margin-top:0;">Connexion Admin</h2>
+                <input type="text" name="username" placeholder="Utilisateur" style="display:block; width:100%; margin-bottom:10px; padding:10px; border-radius:5px; border:none;">
+                <input type="password" name="password" placeholder="Mot de passe" style="display:block; width:100%; margin-bottom:20px; padding:10px; border-radius:5px; border:none;">
+                <button type="submit" style="width:100%; padding:10px; border-radius:5px; border:none; background:#ff4d4d; color:white; cursor:pointer;">Se connecter</button>
+            </form>
+        </body>
+    '''
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('index'))
+
 @app.route('/')
 def index():
-    # Récupération sécurisée du profil
     mon_profil = app.config.get('USER_PROFILE')
-    # Récupération des compétences pour la boucle dans index.html
     mes_competences = Competence.query.all()
-    # Récupération des semestres pour la hiérarchie
     mes_semestres = Semestre.query.all()
-    
-    return render_template('index.html', 
-                           profile=mon_profil, 
-                           competences=mes_competences, 
-                           semestres=mes_semestres)
+    return render_template('index.html', profile=mon_profil, competences=mes_competences, semestres=mes_semestres)
 
 @app.route('/add', methods=['POST'])
 def add_competence():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+
     nom = request.form.get('nom_competence')
     niveau = request.form.get('niveau_competence')
-    # Note : Tu pourrais aussi récupérer bloc_id ici via un <select> dans ton HTML
-
     if nom and niveau:
-        # On enregistre le niveau tel quel (car c'est du texte maintenant : "Expert")
         nouvelle_comp = Competence(nom=nom, niveau=niveau)
         db.session.add(nouvelle_comp)
         db.session.commit()
-    
     return redirect(url_for('index'))
 
 @app.route('/delete/<int:id>')
 def delete_competence(id):
+    # SÉCURITÉ : On vérifie si on est connecté avant de supprimer
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+
     comp_a_supprimer = Competence.query.get_or_404(id)
     db.session.delete(comp_a_supprimer)
     db.session.commit()
