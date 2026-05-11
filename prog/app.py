@@ -60,7 +60,7 @@ def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        if username == 'admin' and password == 'admin':
+        if username == 'admin' and password == 'LeclercAzure':
             session['logged_in'] = True
             return redirect(url_for('index'))
         else:
