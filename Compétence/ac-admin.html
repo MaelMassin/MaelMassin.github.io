@@ -4,100 +4,62 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Apprentissages Critiques - Maël Massin</title>
+  <title>AC Assister - Maël Massin</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Mulish:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
 
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../assets/css/main.css" rel="stylesheet">
+
+  <style>
+    body { background-color: #0f1113 !important; color: white !important; }
+    .profile-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 25px; border-radius: 15px; }
+    .btn-outline-danger { border-color: #e84545 !important; color: white !important; margin-bottom: 10px; border-radius: 10px; }
+    .btn-outline-danger:hover { background-color: #e84545 !important; }
+  </style>
 </head>
 
 <body class="portfolio-details-page">
 
   <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="../index.html" class="logo d-flex align-items-center me-auto">
-        <h1 class="sitename">Maël Massin</h1>
+    <div class="container-fluid container-xl d-flex align-items-center">
+      <a href="../index.html" class="logo d-flex align-items-center me-auto" style="text-decoration:none;">
+        <h1 class="sitename" style="color:white; font-size: 24px;">Maël Massin</h1>
       </a>
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="../index.html#hero">Accueil</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
     </div>
   </header>
 
   <main class="main py-5 dark-background">
     <div class="container">
       
-      <div class="section-title" data-aos="fade-up">
-        <span class="subtitle">Compétence : Administrer</span>
-        <h2>Apprentissages Critiques</h2>
-        <p>Niveau 1 : Assister l'administrateur du réseau</p>
+      <div class="section-title text-center mb-5">
+        <span style="color: #e84545; text-transform: uppercase; letter-spacing: 2px;">Compétence : Assister</span>
+        <h2 style="color: white; font-weight: 700; margin-top: 10px;">Apprentissages Critiques</h2>
       </div>
 
-      <div class="d-flex justify-content-center gap-3 mb-5">
-        <a href="#" class="btn-getstarted" style="margin:0;">Année 1</a>
-        <button class="btn btn-outline-secondary px-4" style="border-radius: 50px;" disabled>Année 2</button>
-        <button class="btn btn-outline-secondary px-4" style="border-radius: 50px;" disabled>Année 3</button>
-      </div>
+      <div class="profile-card">
+        <p class="text-center mb-4" style="opacity: 0.7;">Niveau 1 : Assister l'administrateur du réseau</p>
 
-      <div class="profile-card" data-aos="fade-up">
-        <h3 class="mb-4" style="color: var(--accent-color);">
-          NIVEAU 1 : Assister l'administrateur réseau
-        </h3>
-        <p class="mb-4" style="color: color-mix(in srgb, var(--default-color), transparent 30%);">
-          Sélectionnez un apprentissage critique (AC) pour consulter mon bilan détaillé :
-        </p>
-
-        <div class="row g-3">
-          <div class="col-12">
-            <a href="ac-assister/ac11-01.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
-              <strong style="color: var(--contrast-color);">AC11.01 |</strong> Maîtriser les lois fondamentales de l'électricité
-            </a>
-            <a href="ac-assister/ac11-02.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
-              <strong style="color: var(--contrast-color);">AC11.02 |</strong> Architecture et fondements des systèmes numériques
-            </a>
-            <a href="ac-assister/ac11-03.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
-              <strong style="color: var(--contrast-color);">AC11.03 |</strong> Configurer les fonctions de base du réseau local
-            </a>
-            <a href="ac-assister/ac11-04.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
-              <strong style="color: var(--contrast-color);">AC11.04 |</strong> Maîtriser les rôles et principes des systèmes d'exploitation
-            </a>
-            <a href="ac-assister/ac11-05.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
-              <strong style="color: var(--contrast-color);">AC11.05 |</strong> Identifier les dysfonctionnements du réseau local
-            </a>
-            <a href="ac-assister/ac11-06.html" class="btn btn-outline-danger w-100 text-start p-3 mb-2" style="border-radius: 12px;">
-              <strong style="color: var(--contrast-color);">AC11.06 |</strong> Installer un poste client et expliquer la procédure
-            </a>
-          </div>
+        <div class="row g-2">
+          <a href="ac-assister/ac11-01.html" class="btn btn-outline-danger w-100 text-start p-3"><strong>AC11.01 |</strong> Lois fondamentales de l'électricité</a>
+          <a href="ac-assister/ac11-02.html" class="btn btn-outline-danger w-100 text-start p-3"><strong>AC11.02 |</strong> Architecture et systèmes numériques</a>
+          <a href="ac-assister/ac11-03.html" class="btn btn-outline-danger w-100 text-start p-3"><strong>AC11.03 |</strong> Fonctions de base du réseau local</a>
+          <a href="ac-assister/ac11-04.html" class="btn btn-outline-danger w-100 text-start p-3"><strong>AC11.04 |</strong> Systèmes d'exploitation</a>
+          <a href="ac-assister/ac11-05.html" class="btn btn-outline-danger w-100 text-start p-3"><strong>AC11.05 |</strong> Identifier les dysfonctionnements</a>
+          <a href="ac-assister/ac11-06.html" class="btn btn-outline-danger w-100 text-start p-3"><strong>AC11.06 |</strong> Installation de poste client</a>
         </div>
       </div>
 
-      <div class="d-flex justify-content-center gap-3 mt-5">
-        <a href="../portfolio-surveiller.html" class="btn btn-secondary px-4 py-2" style="border-radius: 50px;">
-          <i class="bi bi-arrow-left me-2"></i>Aller au Projet Surveiller
-        </a>
-      </div>
-
-      <div class="text-center mt-4">
-        <a href="../index.html" class="btn btn-outline-light px-4 py-2" style="border-radius: 50px; opacity: 0.8;">
-          <i class="bi bi-house-door me-2"></i>Retour à l'accueil du Portfolio
+      <div class="text-center mt-5">
+        <a href="../index.html" class="btn btn-secondary px-4 py-2" style="border-radius: 50px; text-decoration: none;">
+          <i class="bi bi-house-door me-2"></i>Retour à l'accueil
         </a>
       </div>
 
     </div>
   </main>
 
-  <footer id="footer" class="footer">
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Maël Massin</strong></p>
-    </div>
-  </footer>
-
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
