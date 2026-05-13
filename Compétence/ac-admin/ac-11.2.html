@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AC11.02 - Maël Massin</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Mulish:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .ac-section { margin-bottom: 30px; border-left: 3px solid var(--accent-color); padding-left: 20px; }
+    .ac-section h3 { font-size: 1.2rem; text-transform: uppercase; color: var(--accent-color); letter-spacing: 1px; }
+    .ac-section p { color: color-mix(in srgb, var(--default-color), transparent 20%); line-height: 1.6; }
+    .code-block { background: #1a1d21; padding: 10px; border-radius: 5px; color: #00d4ff; font-family: monospace; }
+  </style>
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl d-flex align-items-center">
+      <a href="../../index.html" class="logo d-flex align-items-center me-auto">
+        <h1 class="sitename">Maël Massin</h1>
+      </a>
+    </div>
+  </header>
+
+  <main class="main py-5 dark-background">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <span class="subtitle">Bilan d'Apprentissage - Assister</span>
+        <h2>AC11.02 | Comprendre l’architecture et les fondements des systèmes numériques</h2>
+      </div>
+
+      <div class="profile-card" data-aos="fade-up">
+        
+        <div class="mb-4">
+          <a href="../ac-assister.html" class="btn btn-outline-light btn-sm">
+            <i class="bi bi-arrow-left"></i> Retour à la liste
+          </a>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-activity me-2"></i>Ce que j’ai fait</h3>
+          <p>J'ai étudié les principes du codage de l'information (conversion binaire, hexadécimale) et la structure des réseaux à travers le modèle OSI et le modèle TCP/IP.</p>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-question-circle me-2"></i>Pourquoi je l’ai fait</h3>
+          <p>Il est impossible d'administrer un réseau sans comprendre comment les données sont encapsulées et comment les adresses (MAC et IP) sont structurées mathématiquement.</p>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-tools me-2"></i>Comment je l’ai fait</h3>
+          <p><strong>Méthode :</strong> Exercices de conversion de bases, analyse de trames avec Wireshark et étude des couches du modèle OSI.<br>
+             <strong>Exemple de conversion :</strong> 
+             <span class="code-block">IP 192.168.1.1 -> 11000000.10101000.00000001.00000001</span><br>
+             <strong>Ressources :</strong> Cours sur l'architecture de l'Internet et les systèmes de numération.</p>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-exclamation-triangle me-2"></i>Mes difficultés</h3>
+          <p>La mémorisation des fonctions précises de chaque couche du modèle OSI et la rapidité de calcul mental pour les masques de sous-réseau (VLSM).</p>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-lightbulb me-2"></i>Ce que j’en ai appris</h3>
+          <p>J'ai compris que chaque action sur le web (un clic, un mail) déclenche une cascade de protocoles structurés qui permettent à des machines différentes de communiquer de manière universelle.</p>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-arrow-repeat me-2"></i>Ce que je ferais autrement</h3>
+          <p>J'utiliserais davantage de simulateurs visuels dès le début pour mieux "voir" le trajet d'un paquet de données à travers les différentes couches logicielles.</p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="footer text-center py-4">
+    <div class="container">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Maël Massin</strong> 2026</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
