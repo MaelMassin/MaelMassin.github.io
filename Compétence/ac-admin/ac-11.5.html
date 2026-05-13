@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AC11.05 - Maël Massin</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Mulish:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .ac-section { margin-bottom: 30px; border-left: 3px solid var(--accent-color); padding-left: 20px; }
+    .ac-section h3 { font-size: 1.2rem; text-transform: uppercase; color: var(--accent-color); letter-spacing: 1px; }
+    .ac-section p { color: color-mix(in srgb, var(--default-color), transparent 20%); line-height: 1.6; }
+    .diagnostic-step { background: rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 15px; margin-bottom: 10px; border: 1px dashed var(--accent-color); }
+  </style>
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl d-flex align-items-center">
+      <a href="../../index.html" class="logo d-flex align-items-center me-auto">
+        <h1 class="sitename">Maël Massin</h1>
+      </a>
+    </div>
+  </header>
+
+  <main class="main py-5 dark-background">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <span class="subtitle">Bilan d'Apprentissage - Assister</span>
+        <h2>AC11.05 | Identifier les dysfonctionnements du réseau local et savoir les signaler</h2>
+      </div>
+
+      <div class="profile-card" data-aos="fade-up">
+        
+        <div class="mb-4">
+          <a href="../ac-assister.html" class="btn btn-outline-light btn-sm">
+            <i class="bi bi-arrow-left"></i> Retour à la liste
+          </a>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-activity me-2"></i>Ce que j’ai fait</h3>
+          <p>J'ai appris à diagnostiquer des pannes de connectivité sur un réseau local (LAN) et à documenter ces erreurs pour permettre une intervention rapide de l'administrateur système.</p>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-question-circle me-2"></i>Pourquoi je l’ai fait</h3>
+          <p>Dans un environnement professionnel, chaque minute de coupure réseau coûte cher. Savoir identifier si une panne est physique (câble), logicielle (IP) ou matérielle (switch) est crucial pour gagner du temps.</p>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-tools me-2"></i>Comment je l’ai fait</h3>
+          <p><strong>Méthode :</strong> Utilisation d'une approche par couches (Modèle OSI). Je vérifie d'abord la couche 1 (physique), puis la couche 3 (adressage).<br>
+             <strong>Outils de diagnostic :</strong>
+             <div class="row mt-2">
+               <div class="col-md-6">
+                 <div class="diagnostic-step"><strong>Ping / Tracert :</strong> Pour vérifier la portée et le chemin des paquets.</div>
+               </div>
+               <div class="col-md-6">
+                 <div class="diagnostic-step"><strong>Ipconfig / Ifconfig :</strong> Pour vérifier la configuration locale du poste.</div>
+               </div>
+             </div>
+          </p>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-exclamation-triangle me-2"></i>Mes difficultés</h3>
+          <p>Interpréter les messages d'erreur parfois vagues (ex: "Délai d'attente de la demande dépassé") et ne pas sauter d'étapes dans la vérification systématique des composants.</p>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-lightbulb me-2"></i>Ce que j’en ai appris</h3>
+          <p>J'ai appris qu'un bon technicien ne devine pas, il teste. J'ai aussi appris l'importance d'un compte-rendu d'incident clair (Ticket) contenant l'heure, le poste concerné et les tests déjà effectués.</p>
+        </div>
+
+        <div class="ac-section">
+          <h3><i class="bi bi-arrow-repeat me-2"></i>Ce que je ferais autrement</h3>
+          <p>J'utiliserais plus souvent des outils d'analyse de trafic comme Wireshark dès le début du diagnostic pour voir précisément si les paquets ARP ou DHCP circulent sur le segment.</p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="footer text-center py-4">
+    <div class="container">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Maël Massin</strong> 2026</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
