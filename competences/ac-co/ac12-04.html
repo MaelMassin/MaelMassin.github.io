@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Métadonnées du document et encodage UTF-8 -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AC12.04 - Connecter les systèmes de ToIP</title>
+  
+  <!-- Fichiers styles CSS tiers (Bootstrap et Icônes Bootstrap) -->
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Fichier style CSS principal personnalisé du portfolio -->
+  <link href="../../assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="portfolio-details-page">
+
+  <!-- En-tête de la page / Barre de navigation supérieure fixe -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+      <!-- Logo avec le nom de l'étudiant renvoyant à l'accueil -->
+      <a href="../../index.html" class="logo d-flex align-items-center me-auto">
+        <h1 class="sitename">Maël Massin</h1>
+      </a>
+      
+      <!-- Menu de navigation principal de l'en-tête -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../../index.html#hero">Accueil</a></li>
+          <li><a href="../../index.html#about">À propos</a></li>
+          <li><a href="../../index.html#resume">Résumé</a></li>
+          <li><a href="../../index.html#portfolio" class="active">Portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteneur de contenu principal de la page (décalé du haut pour la barre de navigation fixe) -->
+  <main class="main py-5" style="margin-top: 80px;">
+    <div class="container">
+
+      <!-- Titre de la section présentant le bilan de l'Apprentissage Critique (AC) -->
+      <div class="section-title" data-aos="fade-up">
+        <span class="subtitle">Bilan d'Apprentissage Critique</span>
+        <h2>AC12.04 | Connecter les systèmes de ToIP</h2>
+      </div>
+
+      <!-- Fiche carte principale contenant la description et les preuves de l'AC -->
+      <div class="profile-card" data-aos="fade-up" style="max-width: 900px; margin: 0 auto;">
+        
+        <!-- Bouton de navigation pour retourner à la liste globale des AC de cette catégorie -->
+        <div class="mb-4">
+          <a href="../ac-connecter.html" class="btn-secondary btn-sm" style="padding: 8px 20px; border-radius: 50px;">
+            <i class="bi bi-arrow-left me-2"></i> Retour à la liste
+          </a>
+        </div>
+
+        <!-- Sections Dynamiques décrivant la réalisation de la compétence (Savoir, Savoir-faire, Analyse) -->
+                <div class="ac-section">
+          <h3><i class="bi bi-journal-code me-2"></i>Ce que j'ai fait</h3>
+          <p>j'ai configuré et mis en relation des terminaux de téléphonie IP (téléphones physiques ou softphones) avec un serveur de communication IPBX pour permettre le passage d'appels internes et externes.</p>
+        </div>
+        <div class="ac-section">
+          <h3><i class="bi bi-question-circle me-2"></i>Pourquoi je l'ai fait</h3>
+          <p>La convergence voix-données est essentielle en entreprise. Savoir connecter ces systèmes permet de réduire les coûts d'infrastructure et d'offrir des services de communication avancés sur le réseau existant.</p>
+        </div>
+        <div class="ac-section">
+          <h3><i class="bi bi-gear me-2"></i>Comment je l'ai fait</h3>
+          <p><strong>Méthode :</strong> Création d'extensions utilisateurs sur l'interface de gestion, attribution des adresses IP et authentification via le protocole SIP.<br>
+             <strong>Outils :</strong> Serveurs Asterisk ou 3CX, téléphones IP Cisco/Yealink, logiciels de type Zoiper.<br>
+             <strong>Ressources :</strong> Protocoles de signalisation (SIP) et de transport de la voix (RTP).</p>
+        </div>
+        <div class="ac-section">
+          <h3><i class="bi bi-exclamation-triangle me-2"></i>Mes difficultés</h3>
+          <p>La résolution des problèmes liés aux pare-feu (NAT) qui bloquent parfois le flux audio unidirectionnel et la compréhension de la hiérarchie des plans de numérotation.</p>
+        </div>
+        <div class="ac-section">
+          <h3><i class="bi bi-lightbulb me-2"></i>Ce que j'en ai appris</h3>
+          <p>j'ai appris que la qualité de service (QoS) est cruciale pour la ToIP afin de garantir que les paquets de voix ne subissent pas de délais ou de gigue (jitter) au milieu des autres données.</p>
+        </div>
+        <div class="ac-section">
+          <h3><i class="bi bi-arrow-repeat me-2"></i>Ce que je ferais autrement</h3>
+          <p>Je mettrais en place un VLAN dédié à la voix dès le début de la configuration pour isoler totalement le trafic téléphonique et assurer une sécurité accrue.</p>
+        </div>
+
+        <!-- Zone dédiée aux preuves concrètes (captures d'écrans, comptes-rendus, fichiers de configuration) -->
+        <div class="ac-section mt-5">
+          <h3><i class="bi bi-folder-check me-2"></i>Preuves / SAÉ associées</h3>
+          <div class="row align-items-center mt-3">
+            <!-- Description de la preuve textuelle -->
+            <div class="col-lg-8 col-md-7">
+              <p>Aucune preuve associée pour le moment.</p>
+            </div>
+            
+            <!-- Zone interactive / Emplacement de capture d'écran (Proof Image Container) -->
+            <div class="col-lg-4 col-md-5 text-center mt-3 mt-md-0">
+              <div class="proof-placeholder" onclick="alert('Cet espace est réservé pour votre capture d\'écran de preuve. Vous pourrez l\'ajouter ultérieurement en insérant votre balise img dans le code HTML.')">
+                <i class="bi bi-image-fill"></i>
+                <span>Espace Preuve (Image à insérer)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+  
+  <!-- Pied de page (Footer) avec mentions de droits d'auteur (copyright) -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <p>© Copyright <strong>Maël Massin</strong> 2026. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Fichiers scripts JavaScript requis (Bootstrap et dépendances) -->
+  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
