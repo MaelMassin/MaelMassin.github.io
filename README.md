@@ -19,18 +19,10 @@ Ce projet ne nécessite aucun backend (pas de base de données ni de conteneur D
 - **Bootstrap 5** : Framework CSS pour garantir une mise en page responsive et fluide sur tous les appareils.
 - **Thème graphique** : Basé sur le template *Craftivo* par BootstrapMade, avec de lourdes personnalisations visuelles.
 
-##  Hébergement
+##  Hébergement et Accès
 
-Le site est conçu pour être hébergé directement et gratuitement via **GitHub Pages**. Aucune installation complexe n'est requise.
+Le site est hébergé directement et gratuitement via **GitHub Pages**. Aucune installation n'est requise.
 
-## 📥 Comment visualiser le site en local ?
-
-1. Clonez ce dépôt sur votre machine :
-   ```bash
-   git clone https://github.com/MaelMassin/MaelMassin.github.io.git
-   ```
-2. Ouvrez le dossier du projet.
-3. Lancez simplement le fichier `index.html` dans le navigateur web de votre choix.
-
+👉 **Visitez le portfolio en ligne :** [https://maelmassin.github.io/](https://maelmassin.github.io/)
 ---
 *L'ensemble des contenus présents sur ce site (sauf mention contraire) sont la propriété exclusive de Maël Massin.*
