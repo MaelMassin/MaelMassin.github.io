@@ -1011,23 +1011,15 @@ section {
   margin-right: 10px;
 }
 
-/*--------------------------------------------------------------
-# Side Scroll 3D Spiral Staircase (RJ45 Ethernet Connector style)
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Side Scroll 3D Spiral Staircase (RJ45 Ethernet Connector style)
---------------------------------------------------------------*/
 .spiral-staircase {
   position: absolute;
-  top: 0; /* Démarre tout en haut de la page */
   left: 45px;
   width: 60px;
   transform-style: preserve-3d;
   z-index: 5;
-  pointer-events: none; /* Empêche de bloquer les clics sur les éléments en dessous */
+  pointer-events: none;
 }
 
-/* Central copper pillar spanning the exact height of the staircase */
 .spiral-staircase::before {
   content: "";
   position: absolute;
@@ -1040,7 +1032,6 @@ section {
   box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
 }
 
-/* RJ45 Connector Body (Plastic boot) positioned absolutely in JS */
 .spiral-step {
   position: absolute;
   left: 18px;
@@ -1051,10 +1042,9 @@ section {
   transform-style: preserve-3d;
   transform: perspective(600px) rotateY(calc(var(--i) * 18deg + var(--scroll-rotation, 0deg))) translateZ(28px);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4), 0 0 5px var(--color);
-  will-change: transform; /* Optimisation de fluidité pour le scroll */
+  will-change: transform;
 }
 
-/* The transparent plastic RJ45 head with gold contact pins */
 .spiral-step::before {
   content: "";
   position: absolute;
@@ -1075,7 +1065,6 @@ section {
   box-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
-/* Cable wire extending from the back of the plug to the center core */
 .spiral-step::after {
   content: "";
   position: absolute;
