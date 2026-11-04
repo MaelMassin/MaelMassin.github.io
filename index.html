@@ -429,64 +429,69 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    // Dynamically generate dense RJ45 steps to cover the absolute height of the main content area without stretching
-    (function() {
-      function initSpiral() {
-        const spiral = document.getElementById('spiralStaircase');
-        const mainElement = document.querySelector('.main');
-        if (!spiral || !mainElement) return;
-        
-        // Clear any existing steps
-        spiral.innerHTML = '';
-        
-        // Calculate the height using the relative parent container height (.main)
-        const mainHeight = mainElement.offsetHeight;
-        const windowHeight = window.innerHeight;
-        const spiralHeight = Math.max(mainHeight - windowHeight - 80, 0); // Stops exactly before the footer
-        
-        // Set the height of the container explicitly in pixels so the copper pillar renders correctly
-        spiral.style.height = spiralHeight + 'px';
-        
-        const stepSpacing = 22; // dense spacing in pixels
-        const numSteps = Math.floor(spiralHeight / stepSpacing);
-        
-        const colors = ['#3b82f6', '#ef4444', '#10b981', '#eab308', '#8b5cf6', '#ec4899', '#f97316', '#14b8a6'];
-        
-        const fragment = document.createDocumentFragment();
-        for (let i = 0; i < numSteps; i++) {
-          const step = document.createElement('div');
-          step.className = 'spiral-step';
-          step.style.setProperty('--i', i);
-          step.style.setProperty('--color', colors[i % colors.length]);
-          step.style.top = (i * stepSpacing) + 'px';
-          fragment.appendChild(step);
-        }
-        spiral.appendChild(fragment);
-      }
+  (function() {
+    function initSpiral() {
+      const spiral = document.getElementById('spiralStaircase');
+      const mainElement = document.querySelector('.main');
+      if (!spiral || !mainElement) return;
 
-      // Run on DOMContentLoaded or load, and also immediately if already loaded
-      if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        initSpiral();
-      } else {
-        window.addEventListener('DOMContentLoaded', initSpiral);
-        window.addEventListener('load', initSpiral);
-      }
+      spiral.innerHTML = '';
 
-      // Rotate steps based on page scroll position
-      window.addEventListener('scroll', () => {
-        const spiral = document.getElementById('spiralStaircase');
-        if (spiral) {
-          const scrollTop = window.scrollY;
-          // Rotate steps based on page scroll position (0.22 degrees of rotation per pixel scrolled)
-          const rotation = scrollTop * 0.22;
-          const steps = spiral.querySelectorAll('.spiral-step');
-          steps.forEach(step => {
-            step.style.setProperty('--scroll-rotation', rotation + 'deg');
-          });
-        }
-      });
-    })();
-  </script>
+      const mainHeight = mainElement.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const spiralHeight = Math.max(mainHeight - windowHeight - 80, 0);
+
+      spiral.style.height = spiralHeight + 'px';
+
+      const stepSpacing = 22;
+      const numSteps = Math.floor(spiralHeight / stepSpacing);
+      const colors = ['#3b82f6', '#ef4444', '#10b981', '#eab308', '#8b5cf6', '#ec4899', '#f97316', '#14b8a6'];
+
+      const fragment = document.createDocumentFragment();
+      for (let i = 0; i < numSteps; i++) {
+        const step = document.createElement('div');
+        step.className = 'spiral-step';
+        step.style.setProperty('--i', i);
+        step.style.setProperty('--color', colors[i % colors.length]);
+        step.style.top = (i * stepSpacing) + 'px';
+        fragment.appendChild(step);
+      }
+      spiral.appendChild(fragment);
+    }
+
+    // 1. Exécution immédiate au premier parsing du DOM
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSpiral);
+    } else {
+      initSpiral();
+    }
+
+    // 2. Recalcul propre une fois toutes les images / styles chargés
+    window.addEventListener('load', initSpiral);
+
+    // 3. Recalcul automatique si la taille de la page change (redimensionnement écran)
+    window.addEventListener('resize', initSpiral);
+
+    // Écouteur de scroll optimisé avec requestAnimationFrame
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const spiral = document.getElementById('spiralStaircase');
+          if (spiral) {
+            const rotation = window.scrollY * 0.22;
+            const steps = spiral.querySelectorAll('.spiral-step');
+            steps.forEach(step => {
+              step.style.setProperty('--scroll-rotation', rotation + 'deg');
+            });
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+</script>
 </body>
 
 </html>
