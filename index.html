@@ -29,6 +29,10 @@
 
 <body class="index-page">
 
+  
+  <!-- 3D Spiral Staircase Scroll Indicator (RJ45 Ethernet Cables Style) -->
+  <div class="spiral-staircase" id="spiralStaircase"></div>
+  
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
       <a href="index.html" class="logo d-flex align-items-center me-auto">
@@ -402,8 +406,6 @@
           </div>
         </div>
 
-      <!-- 3D Spiral Staircase Scroll Indicator (RJ45 Ethernet Cables Style) -->
-      <div class="spiral-staircase" id="spiralStaircase"></div>
     </section>
 
   </main>
@@ -426,72 +428,78 @@
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
 
   <!-- Main JS File -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
   <script src="assets/js/main.js"></script>
 
   <script>
-  (function() {
-    function initSpiral() {
-      const spiral = document.getElementById('spiralStaircase');
-      const mainElement = document.querySelector('.main');
-      if (!spiral || !mainElement) return;
+    (function() {
+      function initSpiral() {
+        const spiral = document.getElementById('spiralStaircase');
+        if (!spiral) return;
 
-      spiral.innerHTML = '';
+        const totalHeight = Math.max(
+          document.body.scrollHeight,
+          document.documentElement.scrollHeight,
+          document.body.offsetHeight,
+          document.documentElement.offsetHeight
+        );
 
-      const mainHeight = mainElement.offsetHeight;
-      const windowHeight = window.innerHeight;
-      const spiralHeight = Math.max(mainHeight - windowHeight - 80, 0);
+        const spiralHeight = Math.max(totalHeight - 80, 0);
 
-      spiral.style.height = spiralHeight + 'px';
+        spiral.innerHTML = '';
+        spiral.style.height = spiralHeight + 'px';
 
-      const stepSpacing = 22;
-      const numSteps = Math.floor(spiralHeight / stepSpacing);
-      const colors = ['#3b82f6', '#ef4444', '#10b981', '#eab308', '#8b5cf6', '#ec4899', '#f97316', '#14b8a6'];
+        const stepSpacing = 22;
+        const numSteps = Math.floor(spiralHeight / stepSpacing);
+        const colors = ['#3b82f6', '#ef4444', '#10b981', '#eab308', '#8b5cf6', '#ec4899', '#f97316', '#14b8a6'];
 
-      const fragment = document.createDocumentFragment();
-      for (let i = 0; i < numSteps; i++) {
-        const step = document.createElement('div');
-        step.className = 'spiral-step';
-        step.style.setProperty('--i', i);
-        step.style.setProperty('--color', colors[i % colors.length]);
-        step.style.top = (i * stepSpacing) + 'px';
-        fragment.appendChild(step);
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < numSteps; i++) {
+          const step = document.createElement('div');
+          step.className = 'spiral-step';
+          step.style.setProperty('--i', i);
+          step.style.setProperty('--color', colors[i % colors.length]);
+          step.style.top = (i * stepSpacing) + 'px';
+          fragment.appendChild(step);
+        }
+        spiral.appendChild(fragment);
+
+        updateRotation();
       }
-      spiral.appendChild(fragment);
-    }
 
-    // 1. Exécution immédiate au premier parsing du DOM
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initSpiral);
-    } else {
-      initSpiral();
-    }
-
-    // 2. Recalcul propre une fois toutes les images / styles chargés
-    window.addEventListener('load', initSpiral);
-
-    // 3. Recalcul automatique si la taille de la page change (redimensionnement écran)
-    window.addEventListener('resize', initSpiral);
-
-    // Écouteur de scroll optimisé avec requestAnimationFrame
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const spiral = document.getElementById('spiralStaircase');
-          if (spiral) {
-            const rotation = window.scrollY * 0.22;
-            const steps = spiral.querySelectorAll('.spiral-step');
-            steps.forEach(step => {
-              step.style.setProperty('--scroll-rotation', rotation + 'deg');
-            });
-          }
-          ticking = false;
+      function updateRotation() {
+        const spiral = document.getElementById('spiralStaircase');
+        if (!spiral) return;
+        const rotation = window.scrollY * 0.22;
+        const steps = spiral.querySelectorAll('.spiral-step');
+        steps.forEach(step => {
+          step.style.setProperty('--scroll-rotation', rotation + 'deg');
         });
-        ticking = true;
       }
-    }, { passive: true });
-  })();
-</script>
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSpiral);
+      } else {
+        initSpiral();
+      }
+
+      window.addEventListener('load', initSpiral);
+      window.addEventListener('resize', initSpiral);
+
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateRotation();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+  </script>
 </body>
 
 </html>
