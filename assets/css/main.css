@@ -1014,14 +1014,17 @@ section {
 /*--------------------------------------------------------------
 # Side Scroll 3D Spiral Staircase (RJ45 Ethernet Connector style)
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Side Scroll 3D Spiral Staircase (RJ45 Ethernet Connector style)
+--------------------------------------------------------------*/
 .spiral-staircase {
   position: absolute;
-  top: 100vh; /* Commence exactement au début d'À propos de moi */
-  bottom: 80px; /* S'étend jusqu'en bas de la page */
+  top: 0; /* Démarre tout en haut de la page */
   left: 45px;
   width: 60px;
   transform-style: preserve-3d;
-  z-index: 5; /* En retrait par rapport aux cartes de texte */
+  z-index: 5;
+  pointer-events: none; /* Empêche de bloquer les clics sur les éléments en dessous */
 }
 
 /* Central copper pillar spanning the exact height of the staircase */
@@ -1031,7 +1034,7 @@ section {
   top: 0;
   bottom: 0;
   width: 8px;
-  background: linear-gradient(90deg, #b45309, #d97706, #f59e0b, #d97706, #b45309); /* Cuivre brillant */
+  background: linear-gradient(90deg, #b45309, #d97706, #f59e0b, #d97706, #b45309);
   left: 26px;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
@@ -1047,8 +1050,8 @@ section {
   border-radius: 2px 3px 3px 2px;
   transform-style: preserve-3d;
   transform: perspective(600px) rotateY(calc(var(--i) * 18deg + var(--scroll-rotation, 0deg))) translateZ(28px);
-  transition: transform 0.15s ease-out;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4), 0 0 5px var(--color); /* Lueur de couleur */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4), 0 0 5px var(--color);
+  will-change: transform; /* Optimisation de fluidité pour le scroll */
 }
 
 /* The transparent plastic RJ45 head with gold contact pins */
@@ -1062,7 +1065,6 @@ section {
   background: rgba(255, 255, 255, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 1px 0 0 1px;
-  /* Broches de contact en or */
   background-image: repeating-linear-gradient(
     90deg,
     #fbbf24,
@@ -1088,6 +1090,7 @@ section {
 
 @media (max-width: 1300px) {
   .spiral-staircase {
-    display: none; /* Masquer sur petits écrans */
+    display: none;
   }
+}
 }
