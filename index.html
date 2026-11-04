@@ -435,70 +435,85 @@
 
   <script>
     (function() {
-      function initSpiral() {
-        const spiral = document.getElementById('spiralStaircase');
-        if (!spiral) return;
+  function initSpiral() {
+    const spiral = document.getElementById('spiralStaircase');
+    const aboutSection = document.getElementById('about');
+    const footer = document.getElementById('footer');
 
-        const totalHeight = Math.max(
-          document.body.scrollHeight,
-          document.documentElement.scrollHeight,
-          document.body.offsetHeight,
-          document.documentElement.offsetHeight
-        );
+    if (!spiral || !aboutSection) return;
 
-        const spiralHeight = Math.max(totalHeight - 80, 0);
+    // Calcul précis des coordonnées absolues dans la page entière
+    const scrollY = window.scrollY || window.pageYOffset;
+    const aboutRect = aboutSection.getBoundingClientRect();
+    const startY = Math.round(aboutRect.top + scrollY);
 
-        spiral.innerHTML = '';
-        spiral.style.height = spiralHeight + 'px';
+    let endY;
+    if (footer) {
+      const footerRect = footer.getBoundingClientRect();
+      // S'arrête 40px avant le haut du footer
+      endY = Math.round(footerRect.top + scrollY - 40);
+    } else {
+      endY = document.documentElement.scrollHeight - 80;
+    }
 
-        const stepSpacing = 22;
-        const numSteps = Math.floor(spiralHeight / stepSpacing);
-        const colors = ['#3b82f6', '#ef4444', '#10b981', '#eab308', '#8b5cf6', '#ec4899', '#f97316', '#14b8a6'];
+    const spiralHeight = Math.max(endY - startY, 0);
 
-        const fragment = document.createDocumentFragment();
-        for (let i = 0; i < numSteps; i++) {
-          const step = document.createElement('div');
-          step.className = 'spiral-step';
-          step.style.setProperty('--i', i);
-          step.style.setProperty('--color', colors[i % colors.length]);
-          step.style.top = (i * stepSpacing) + 'px';
-          fragment.appendChild(step);
-        }
-        spiral.appendChild(fragment);
+    // Injection directe dans le style inline (écrase tout conflit CSS)
+    spiral.style.setProperty('top', startY + 'px', 'important');
+    spiral.style.setProperty('height', spiralHeight + 'px', 'important');
+    spiral.innerHTML = '';
 
+    const stepSpacing = 22; // espacement vertical
+    const numSteps = Math.floor(spiralHeight / stepSpacing);
+    const colors = ['#3b82f6', '#ef4444', '#10b981', '#eab308', '#8b5cf6', '#ec4899', '#f97316', '#14b8a6'];
+
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < numSteps; i++) {
+      const step = document.createElement('div');
+      step.className = 'spiral-step';
+      step.style.setProperty('--i', i);
+      step.style.setProperty('--color', colors[i % colors.length]);
+      step.style.top = (i * stepSpacing) + 'px';
+      fragment.appendChild(step);
+    }
+    spiral.appendChild(fragment);
+
+    updateRotation();
+  }
+
+  function updateRotation() {
+    const spiral = document.getElementById('spiralStaircase');
+    if (!spiral) return;
+    const rotation = (window.scrollY || window.pageYOffset) * 0.22;
+    const steps = spiral.querySelectorAll('.spiral-step');
+    steps.forEach(step => {
+      step.style.setProperty('--scroll-rotation', rotation + 'deg');
+    });
+  }
+
+  // Initialisation au chargement
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSpiral);
+  } else {
+    initSpiral();
+  }
+
+  // Recalcul une fois les images et styles appliqués (crucial pour le hero)
+  window.addEventListener('load', initSpiral);
+  window.addEventListener('resize', initSpiral);
+
+  // Rotation fluide au scroll
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
         updateRotation();
-      }
-
-      function updateRotation() {
-        const spiral = document.getElementById('spiralStaircase');
-        if (!spiral) return;
-        const rotation = window.scrollY * 0.22;
-        const steps = spiral.querySelectorAll('.spiral-step');
-        steps.forEach(step => {
-          step.style.setProperty('--scroll-rotation', rotation + 'deg');
-        });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSpiral);
-      } else {
-        initSpiral();
-      }
-
-      window.addEventListener('load', initSpiral);
-      window.addEventListener('resize', initSpiral);
-
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            updateRotation();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, { passive: true });
-    })();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
   </script>
 </body>
 
