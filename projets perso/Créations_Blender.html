@@ -1,1 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créations Blender & 3D - Maël Massin</title>
 
+  <!-- Bootstrap Icons (pour les icônes déjà utilisées) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!--Fichier CSS principal-->
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- Script Google Model-Viewer pour afficher les scènes 3D (.glb) interactives -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+  <style>
+    /* Ajustements spécifiques pour la galerie multimédia (Images, Vidéos, 3D) */
+    .media-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: #070c18;
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .media-wrapper img,
+    .media-wrapper video,
+    .media-wrapper model-viewer {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Badge en haut à droite du média (3D, Vidéo, Rendu) */
+    .media-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(5, 8, 17, 0.85);
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* Placeholder en attendante des fichiers */
+    .media-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--default-color);
+      border: 2px dashed rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      margin: 12px;
+      width: calc(100% - 24px);
+      height: calc(100% - 24px);
+      transition: all 0.3s ease;
+    }
+
+    .portfolio-card:hover .media-placeholder {
+      border-color: var(--accent-color);
+      background: rgba(14, 165, 233, 0.05);
+      color: var(--heading-color);
+    }
+
+    .media-placeholder i {
+      font-size: 2.2rem;
+      color: var(--accent-color);
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--default-color);
+      margin: 10px 0 15px 0;
+    }
+
+    /* Boutons de filtre */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      color: var(--default-color);
+      padding: 8px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: var(--default-font);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent-gradient);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="container container-fluid">
+      <a href="../../index.html" class="logo">
+        <h1>Maël Massin</h1>
+      </a>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="../../index.html#hero">Accueil</a></li>
+          <li><a href="../../index.html#about">À propos</a></li>
+          <li><a href="../../index.html#resume">Résumé</a></li>
+          <li><a href="../../index.html#portfolio" class="active">Portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main" style="padding-top: 80px;">
+    <section id="blender-projects">
+      <div class="container">
+
+        <!-- Bouton retour -->
+        <div style="margin-bottom: 30px;">
+          <a href="../../index.html#portfolio" class="btn-secondary">
+            <i class="bi bi-arrow-left"></i> Retour au portfolio
+          </a>
+        </div>
+
+        <!-- En-tête de section -->
+        <div class="section-title">
+          <span class="subtitle">Modélisation & Shaders</span>
+          <h2>Créations Blender & Scènes 3D</h2>
+          <p>Exploration de la modélisation 3D, du sculpting, des matériaux procéduraux PBR et du rendu temps réel.</p>
+        </div>
+
+        <!-- Barre de filtres par type de média -->
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterProjects('all', this)">Tout voir</button>
+          <button class="filter-btn" onclick="filterProjects('3d', this)"><i class="bi bi-box"></i> Scènes 3D Interactives</button>
+          <button class="filter-btn" onclick="filterProjects('video', this)"><i class="bi bi-play-circle"></i> Courtes Vidéos</button>
+          <button class="filter-btn" onclick="filterProjects('image', this)"><i class="bi bi-image"></i> Rendus Images</button>
+        </div>
+
+        <!-- Grille de projets (utilise ta classe .portfolio-grid) -->
+        <div class="portfolio-grid">
+
+          <!-- =========================================================
+               EXEMPLE 1 : EMPLACEMENT SCÈNE 3D INTERACTIVE (.glb)
+          ========================================================== -->
+          <div class="portfolio-card" data-type="3d">
+            <div class="media-wrapper">
+              <span class="media-badge"><i class="bi bi-badge-3d"></i> 3D Interactive</span>
+              
+              <!-- ZONE EN ATTENTE (À supprimer quand tu auras ton fichier .glb) -->
+              <div class="media-placeholder">
+                <i class="bi bi-box-seam"></i>
+                <span>Emplacement Scène 3D (.glb)</span>
+                <small style="opacity: 0.7;">Rotation & Zoom à la souris</small>
+              </div>
+
+              <!-- FICHIER .GLB, DÉCOMMENTER CECI :
+              <model-viewer 
+                src="media/mon-modele.glb" 
+                alt="Modèle 3D Blender" 
+                auto-rotate 
+                camera-controls 
+                shadow-intensity="1"
+                environment-image="neutral">
+              </model-viewer>
+              -->
+            </div>
+
+            <div class="portfolio-meta">
+              <h3>Monolithe & Environnement</h3>
+              <p class="project-desc">Sculpting haute définition et création de shaders procéduraux PBR sous Blender.</p>
+              <div class="project-tags">
+                <span class="tag">Blender</span>
+                <span class="tag">Shaders PBR</span>
+                <span class="tag">glTF / GLB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================================
+               EXEMPLE 2 : EMPLACEMENT COURTE VIDÉO (.mp4 / .webm)
+          ========================================================== -->
+          <div class="portfolio-card" data-type="video">
+            <div class="media-wrapper">
+              <span class="media-badge"><i class="bi bi-film"></i> Animation</span>
+
+              <!-- ZONE EN ATTENTE (À supprimer quand j'aurais la vidéo) -->
+              <div class="media-placeholder">
+                <i class="bi bi-camera-reels"></i>
+                <span>Emplacement Courte Vidéo (.mp4)</span>
+                <small style="opacity: 0.7;">Turntable ou animation courte</small>
+              </div>
+
+              <!-- QUAND J'AURAIS LA VIDÉO, DÉCOMMENTER CECI :
+              <video src="media/animation.mp4" autoplay loop muted playsinline controls></video>
+              -->
+            </div>
+
+            <div class="portfolio-meta">
+              <h3>Animation & Éclairage Cycles</h3>
+              <p class="project-desc">Rendu animé mettant en valeur les jeux de lumière volumétrique et le mouvement de caméra.</p>
+              <div class="project-tags">
+                <span class="tag">Cycles</span>
+                <span class="tag">Animation</span>
+                <span class="tag">Lighting</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================================
+               EXEMPLE 3 : EMPLACEMENT IMAGE / RENDU (.png / .webp)
+          ========================================================== -->
+          <div class="portfolio-card" data-type="image">
+            <div class="media-wrapper">
+              <span class="media-badge"><i class="bi bi-image"></i> Rendu HD</span>
+
+              <!-- ZONE EN ATTENTE (À supprimer quand j'aurais mon image) -->
+              <div class="media-placeholder">
+                <i class="bi bi-image"></i>
+                <span>Emplacement Rendu Image (.png)</span>
+                <small style="opacity: 0.7;">Rendu final haute résolution</small>
+              </div>
+
+              <!-- QUAND J'AURAIS MON IMAGE, DÉCOMMENTER CECI :
+              <img src="media/rendu-final.png" alt="Rendu Blender">
+              -->
+            </div>
+
+            <div class="portfolio-meta">
+              <h3>Modélisation d'Objet / Prop</h3>
+              <p class="project-desc">Modélisation hard-surface, dépliage UV et texturing détaillé.</p>
+              <div class="project-tags">
+                <span class="tag">Hard-Surface</span>
+                <span class="tag">UV Mapping</span>
+                <span class="tag">Eevee / Cycles</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 <strong>Maël Massin</strong>. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Script pour les filtres (Tout / 3D / Vidéos / Images) -->
+  <script>
+    function filterProjects(type, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.portfolio-card').forEach(card => {
+        if (type === 'all' || card.dataset.type === type) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
