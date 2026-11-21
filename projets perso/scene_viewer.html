@@ -59,30 +59,6 @@
       --poster-color: #070c18;
     }
 
-    /* Bandeau info mobile */
-    #mobile-hint {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 10px 16px;
-      background: rgba(5, 8, 20, 0.85);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      z-index: 10;
-      pointer-events: none;
-      border-top: 1px solid rgba(56, 189, 248, 0.15);
-    }
-    .hint-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 0.72rem;
-      color: rgba(224, 242, 254, 0.75);
-    }
-    .hint-icon { font-size: 1.1rem; color: #38bdf8; }
 
     /* ───── Viewer desktop (A-Frame) ───── */
     #desktop-viewer {
@@ -111,7 +87,7 @@
       shadow-intensity="1"
       environment-image="neutral"
       touch-action="pan-y"
-      interaction-prompt="auto">
+      interaction-prompt="none">
     </model-viewer>
   </div>
 
