@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créations Blender & 3D - Maël Massin</title>
+
+  <!-- Bootstrap Icons (pour les icônes déjà utilisées) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!--Fichier CSS principal-->
+  <link rel="stylesheet" href="../../assets/css/main.css">
+
+  <!-- A-Frame chargé dans une iframe séparée (scene_viewer.html) -->
+
+  <style>
+    /* Ajustements spécifiques pour la galerie multimédia (Images, Vidéos, 3D) */
+    .media-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: #070c18;
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .media-wrapper img,
+    .media-wrapper video,
+    .media-wrapper model-viewer {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Badge en haut à droite du média (3D, Vidéo, Rendu) */
+    .media-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(5, 8, 17, 0.85);
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* Placeholder en attendante des fichiers */
+    .media-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--default-color);
+      border: 2px dashed rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      margin: 12px;
+      width: calc(100% - 24px);
+      height: calc(100% - 24px);
+      transition: all 0.3s ease;
+    }
+
+    .portfolio-card:hover .media-placeholder {
+      border-color: var(--accent-color);
+      background: rgba(14, 165, 233, 0.05);
+      color: var(--heading-color);
+    }
+
+    .media-placeholder i {
+      font-size: 2.2rem;
+      color: var(--accent-color);
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--default-color);
+      margin: 10px 0 15px 0;
+    }
+
+    /* Boutons de filtre */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      color: var(--default-color);
+      padding: 8px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: var(--default-font);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent-gradient);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
+    }
+
+    /* ---- Guide de navigation 3D ---- */
+    .nav-guide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 14px 20px;
+      background: rgba(5, 8, 20, 0.6);
+      border: 1px solid rgba(56, 189, 248, 0.15);
+      border-radius: 14px 14px 0 0;
+      border-bottom: none;
+    }
+
+    .nav-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-group-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+    }
+
+    .keys-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .key-row {
+      display: flex;
+      gap: 4px;
+    }
+
+    .key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 30px;
+      height: 30px;
+      padding: 0 8px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #e0f2fe;
+      font-family: 'Segoe UI', monospace;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .key.wide { min-width: 70px; }
+
+    .nav-sep {
+      width: 1px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-action {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--default-color);
+      font-size: 0.8rem;
+    }
+
+    .nav-action i {
+      font-size: 1.3rem;
+      color: var(--accent-color);
+    }
+
+    .nav-action span {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-action strong {
+      font-size: 0.8rem;
+      color: #e0f2fe;
+    }
+
+    .nav-action small {
+      font-size: 0.68rem;
+      opacity: 0.6;
+    }
+
+    /* Iframe du viewer A-Frame */
+    .aframe-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .aframe-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="container container-fluid">
+      <a href="../../index.html" class="logo">
+        <h1>Maël Massin</h1>
+      </a>
+      <nav class="navmenu">
+        <ul>
+          <li><a href="../../index.html#hero">Accueil</a></li>
+          <li><a href="../../index.html#about">À propos</a></li>
+          <li><a href="../../index.html#resume">Résumé</a></li>
+          <li><a href="../../index.html#portfolio" class="active">Portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main" style="padding-top: 80px;">
+    <section id="blender-projects">
+      <div class="container">
+
+        <!-- Bouton retour -->
+        <div style="margin-bottom: 30px;">
+          <a href="../../index.html#portfolio" class="btn-secondary">
+            <i class="bi bi-arrow-left"></i> Retour au portfolio
+          </a>
+        </div>
+
+        <!-- En-tête de section -->
+        <div class="section-title">
+          <span class="subtitle">Modélisation & Shaders</span>
+          <h2>Créations Blender & Scènes 3D</h2>
+          <p>Exploration de la modélisation 3D, du sculpting, des matériaux procéduraux PBR et du rendu temps réel.</p>
+        </div>
+
+        <!-- Barre de filtres par type de média -->
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterProjects('all', this)">Tout voir</button>
+          <button class="filter-btn" onclick="filterProjects('3d', this)"><i class="bi bi-box"></i> Scènes 3D Interactives</button>
+          <button class="filter-btn" onclick="filterProjects('video', this)"><i class="bi bi-play-circle"></i> Courtes Vidéos</button>
+          <button class="filter-btn" onclick="filterProjects('image', this)"><i class="bi bi-image"></i> Rendus Images</button>
+        </div>
+
+        <!-- Grille de projets (utilise ta classe .portfolio-grid) -->
+        <div class="portfolio-grid">
+
+          <!-- =========================================================
+               CARTE 1 : SCÈNE 3D INTERACTIVE — MONOLITHE MYSTIQUE
+          ========================================================== -->
+          <div class="portfolio-card" data-type="3d">
+
+            <!-- Guide des touches de navigation -->
+            <div class="nav-guide">
+
+              <!-- ZQSD -->
+              <div class="nav-group">
+                <span class="nav-group-label">Se déplacer</span>
+                <div class="keys-row">
+                  <div class="key-row"><span class="key">Z</span></div>
+                  <div class="key-row"><span class="key">Q</span><span class="key">S</span><span class="key">D</span></div>
+                </div>
+              </div>
+
+              <div class="nav-sep"></div>
+
+              <!-- Souris -->
+              <div class="nav-group">
+                <span class="nav-group-label">Regarder</span>
+                <div class="nav-action">
+                  <i class="bi bi-mouse2"></i>
+                  <span>
+                    <strong>Bouger la souris</strong>
+                    <small>Orienter la vue</small>
+                  </span>
+                </div>
+              </div>
+
+              <div class="nav-sep"></div>
+
+              <!-- Clic -->
+              <div class="nav-group">
+                <span class="nav-group-label">Activer</span>
+                <div class="nav-action">
+                  <i class="bi bi-cursor"></i>
+                  <span>
+                    <strong>Clic dans la scène</strong>
+                    <small>Capturer la souris</small>
+                  </span>
+                </div>
+              </div>
+
+              <div class="nav-sep"></div>
+
+              <!-- Échap -->
+              <div class="nav-group">
+                <span class="nav-group-label">Quitter</span>
+                <div class="keys-row">
+                  <div class="key-row"><span class="key wide">Échap</span></div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Viewer A-Frame embarqué -->
+            <div class="aframe-wrapper">
+              <span class="media-badge"><i class="bi bi-badge-3d"></i> 3D Interactive</span>
+              <iframe
+                src="scene_viewer.html"
+                title="Scène 3D interactive — Monolithe Mystique"
+                allow="pointer-lock; fullscreen">
+              </iframe>
+            </div>
+
+            <div class="portfolio-meta">
+              <h3>Scène 3D Interactive — Monolithe Mystique</h3>
+              <p class="project-desc">Navigation libre à l'intérieur de la scène. Sculpting haute définition et shaders procéduraux PBR sous Blender.</p>
+              <div class="project-tags">
+                <span class="tag">Blender</span>
+                <span class="tag">Shaders PBR</span>
+                <span class="tag">A-Frame</span>
+                <span class="tag">Sculpting</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================================
+               CARTE 2 : ANIMATION PANORAMIQUE DU MONOLITHE MYSTIQUE
+          ========================================================== -->
+          <div class="portfolio-card" data-type="video">
+            <div class="media-wrapper">
+              <span class="media-badge"><i class="bi bi-film"></i> Animation</span>
+              <video src="animation_monolithe_mystique_panoramique.mp4" autoplay loop muted playsinline></video>
+            </div>
+
+            <div class="portfolio-meta">
+              <h3>Animation Panoramique — Monolithe Mystique</h3>
+              <p class="project-desc">Rendu animé mettant en valeur les jeux de lumière volumétrique et le mouvement de caméra autour du monolithe.</p>
+              <div class="project-tags">
+                <span class="tag">Blender</span>
+                <span class="tag">Cycles</span>
+                <span class="tag">Animation</span>
+                <span class="tag">Lighting</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================================
+               CARTE 3 : COMPARATIF ÉCLAIRAGE — MONOLITHE MYSTIQUE
+          ========================================================== -->
+          <div class="portfolio-card" data-type="image">
+            <div class="media-wrapper">
+              <span class="media-badge"><i class="bi bi-image"></i> Rendu HD</span>
+              <img src="comparatif_eclairage_detail.png" alt="Comparatif éclairage détail — Monolithe Mystique">
+            </div>
+
+            <div class="portfolio-meta">
+              <h3>Comparatif Éclairage — Monolithe Mystique</h3>
+              <p class="project-desc">Rendu comparatif des détails d'éclairage haute résolution, montrant l'évolution des paramètres de lumière sur la scène.</p>
+              <div class="project-tags">
+                <span class="tag">Blender</span>
+                <span class="tag">Lighting</span>
+                <span class="tag">Rendu PNG</span>
+                <span class="tag">Eevee / Cycles</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 <strong>Maël Massin</strong>. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Script pour les filtres (Tout / 3D / Vidéos / Images) -->
+  <script>
+    function filterProjects(type, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.portfolio-card').forEach(card => {
+        if (type === 'all' || card.dataset.type === type) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
