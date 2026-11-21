@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scène 3D — Monolithe Mystique</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #070c18; }
+    a-scene { width: 100%; height: 100%; }
+
+    /* Message "Cliquez pour activer" */
+    #click-to-start {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: rgba(5, 8, 20, 0.75);
+      backdrop-filter: blur(6px);
+      color: #e0f2fe;
+      font-family: 'Segoe UI', sans-serif;
+      z-index: 999;
+      cursor: pointer;
+      transition: opacity 0.4s ease;
+    }
+    #click-to-start .icon {
+      font-size: 2.5rem;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    #click-to-start p { font-size: 1rem; opacity: 0.9; }
+    #click-to-start small { font-size: 0.75rem; opacity: 0.6; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.7; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay clique pour activer les contrôles souris -->
+  <div id="click-to-start" onclick="activateControls()">
+    <div class="icon">🖱️</div>
+    <p>Cliquez pour explorer la scène</p>
+    <small>Utilisez ZQSD + souris pour naviguer</small>
+  </div>
+
+  <a-scene
+    embedded
+    vr-mode-ui="enabled: false"
+    renderer="antialias: true; colorManagement: true;"
+    background="color: #070c18">
+
+    <a-assets>
+      <a-asset-item id="monolithe" src="scene_monolithe_mystique.glb" response-type="arraybuffer"></a-asset-item>
+    </a-assets>
+
+    <!-- Scène 3D -->
+    <a-gltf-model src="#monolithe" position="0 0 0" rotation="0 0 0" scale="1 1 1"></a-gltf-model>
+
+    <!-- Lumière ambiante douce -->
+    <a-light type="ambient" color="#c9e8ff" intensity="0.6"></a-light>
+    <a-light type="directional" color="#ffffff" intensity="0.8" position="2 4 -1"></a-light>
+
+    <!-- Caméra avec WASD + regard souris, départ à l'intérieur de la scène -->
+    <a-entity id="rig" position="0 1.6 0">
+      <a-camera
+        id="camera"
+        wasd-controls="acceleration: 15; fly: false"
+        look-controls="enabled: false; pointerLockEnabled: true"
+        near="0.05">
+      </a-camera>
+    </a-entity>
+
+  </a-scene>
+
+  <script>
+    function activateControls() {
+      const overlay = document.getElementById('click-to-start');
+      overlay.style.opacity = '0';
+      setTimeout(() => overlay.style.display = 'none', 400);
+
+      // Active le look-controls avec pointer lock
+      const camera = document.getElementById('camera');
+      camera.setAttribute('look-controls', 'enabled: true; pointerLockEnabled: true');
+
+      // Demande le pointer lock pour capturer la souris
+      document.querySelector('a-scene').canvas.requestPointerLock =
+        document.querySelector('a-scene').canvas.requestPointerLock ||
+        document.querySelector('a-scene').canvas.mozRequestPointerLock;
+      document.querySelector('a-scene').canvas.requestPointerLock();
+    }
+
+    // Quand on presse Échap, réaffiche le message
+    document.addEventListener('pointerlockchange', () => {
+      if (!document.pointerLockElement) {
+        const overlay = document.getElementById('click-to-start');
+        overlay.style.display = 'flex';
+        overlay.style.opacity = '1';
+        document.getElementById('camera').setAttribute('look-controls', 'enabled: false');
+      }
+    });
+  </script>
+
+</body>
+</html>
