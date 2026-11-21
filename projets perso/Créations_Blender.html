@@ -211,6 +211,43 @@
       opacity: 0.6;
     }
 
+    /* ---- Onglets Desktop / Mobile du guide ---- */
+    .nav-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: -1px;
+      padding: 12px 20px 0;
+      background: rgba(5, 8, 20, 0.6);
+      border: 1px solid rgba(56, 189, 248, 0.15);
+      border-radius: 14px 14px 0 0;
+      border-bottom: none;
+    }
+
+    .nav-tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 6px 16px 10px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--default-font);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.03em;
+    }
+    .nav-tab-btn.active {
+      color: var(--accent-color);
+      border-bottom-color: var(--accent-color);
+    }
+    .nav-tab-btn:hover { color: #e0f2fe; }
+
+    .nav-tab-panel { display: none; }
+    .nav-tab-panel.active { display: flex; }
+
     /* Iframe du viewer A-Frame */
     .aframe-wrapper {
       position: relative;
@@ -281,57 +318,115 @@
           ========================================================== -->
           <div class="portfolio-card" data-type="3d">
 
+            <!-- Onglets du guide de navigation -->
+            <div class="nav-tabs" role="tablist">
+              <button class="nav-tab-btn active" id="tab-desktop" onclick="switchNavTab('desktop')">
+                <i class="bi bi-display"></i> Clavier &amp; Souris
+              </button>
+              <button class="nav-tab-btn" id="tab-mobile" onclick="switchNavTab('mobile')">
+                <i class="bi bi-phone"></i> Mobile
+              </button>
+            </div>
+
             <!-- Guide des touches de navigation -->
             <div class="nav-guide">
 
-              <!-- ZQSD -->
-              <div class="nav-group">
-                <span class="nav-group-label">Se déplacer</span>
-                <div class="keys-row">
-                  <div class="key-row"><span class="key">Z</span></div>
-                  <div class="key-row"><span class="key">Q</span><span class="key">S</span><span class="key">D</span></div>
+              <!-- ===== PANEL DESKTOP ===== -->
+              <div class="nav-tab-panel active" id="panel-desktop">
+
+                <!-- ZQSD -->
+                <div class="nav-group">
+                  <span class="nav-group-label">Se déplacer</span>
+                  <div class="keys-row">
+                    <div class="key-row"><span class="key">Z</span></div>
+                    <div class="key-row"><span class="key">Q</span><span class="key">S</span><span class="key">D</span></div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="nav-sep"></div>
+                <div class="nav-sep"></div>
 
-              <!-- Souris -->
-              <div class="nav-group">
-                <span class="nav-group-label">Regarder</span>
-                <div class="nav-action">
-                  <i class="bi bi-mouse2"></i>
-                  <span>
-                    <strong>Bouger la souris</strong>
-                    <small>Orienter la vue</small>
-                  </span>
+                <!-- Souris -->
+                <div class="nav-group">
+                  <span class="nav-group-label">Regarder</span>
+                  <div class="nav-action">
+                    <i class="bi bi-mouse2"></i>
+                    <span>
+                      <strong>Bouger la souris</strong>
+                      <small>Orienter la vue</small>
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <div class="nav-sep"></div>
+                <div class="nav-sep"></div>
 
-              <!-- Clic -->
-              <div class="nav-group">
-                <span class="nav-group-label">Activer</span>
-                <div class="nav-action">
-                  <i class="bi bi-cursor"></i>
-                  <span>
-                    <strong>Clic dans la scène</strong>
-                    <small>Capturer la souris</small>
-                  </span>
+                <!-- Clic -->
+                <div class="nav-group">
+                  <span class="nav-group-label">Activer</span>
+                  <div class="nav-action">
+                    <i class="bi bi-cursor"></i>
+                    <span>
+                      <strong>Clic dans la scène</strong>
+                      <small>Capturer la souris</small>
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <div class="nav-sep"></div>
+                <div class="nav-sep"></div>
 
-              <!-- Échap -->
-              <div class="nav-group">
-                <span class="nav-group-label">Quitter</span>
-                <div class="keys-row">
-                  <div class="key-row"><span class="key wide">Échap</span></div>
+                <!-- Échap -->
+                <div class="nav-group">
+                  <span class="nav-group-label">Quitter</span>
+                  <div class="keys-row">
+                    <div class="key-row"><span class="key wide">Échap</span></div>
+                  </div>
                 </div>
-              </div>
 
-            </div>
+                      <!-- ===== PANEL MOBILE ===== -->
+              <div class="nav-tab-panel" id="panel-mobile">
+
+                <!-- Glisser -->
+                <div class="nav-group">
+                  <span class="nav-group-label">Rotation</span>
+                  <div class="nav-action">
+                    <i class="bi bi-hand-index" style="font-size:1.4rem;"></i>
+                    <span>
+                      <strong>1 doigt — Glisser</strong>
+                      <small>Tourner autour</small>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="nav-sep"></div>
+
+                <!-- Pincer -->
+                <div class="nav-group">
+                  <span class="nav-group-label">Zoom</span>
+                  <div class="nav-action">
+                    <i class="bi bi-zoom-in" style="font-size:1.4rem;"></i>
+                    <span>
+                      <strong>2 doigts — Pincer</strong>
+                      <small>Zoomer / dézoomer</small>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="nav-sep"></div>
+
+                <!-- 2 doigts glisser -->
+                <div class="nav-group">
+                  <span class="nav-group-label">Déplacer</span>
+                  <div class="nav-action">
+                    <i class="bi bi-arrows-move" style="font-size:1.4rem;"></i>
+                    <span>
+                      <strong>2 doigts — Glisser</strong>
+                      <small>Panoramique</small>
+                    </span>
+                  </div>
+                </div>
+
+              </div><!-- /panel-mobile -->
+
+            </div><!-- /nav-guide -->
 
             <!-- Viewer A-Frame embarqué -->
             <div class="aframe-wrapper">
@@ -339,7 +434,7 @@
               <iframe
                 src="scene_viewer.html"
                 title="Scène 3D interactive — Monolithe Mystique"
-                allow="pointer-lock; fullscreen">
+                allow="pointer-lock; fullscreen; gyroscope; accelerometer; device-orientation">
               </iframe>
             </div>
 
@@ -423,6 +518,16 @@
         }
       });
     }
+
+    function switchNavTab(tab) {
+      // Boutons
+      document.getElementById('tab-desktop').classList.toggle('active', tab === 'desktop');
+      document.getElementById('tab-mobile').classList.toggle('active',  tab === 'mobile');
+      // Panels
+      document.getElementById('panel-desktop').classList.toggle('active', tab === 'desktop');
+      document.getElementById('panel-mobile').classList.toggle('active',  tab === 'mobile');
+    }
+
   </script>
 
 </body>
